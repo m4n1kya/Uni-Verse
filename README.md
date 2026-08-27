@@ -61,13 +61,13 @@ Uni-Verse
 ### Clone the repository
 
 ```bash
-git clone https://github.com/m4n1kya/Epics-UniEase.git
+git clone https://github.com/m4n1kya/Uni-Verse.git
 ```
 
 ### Navigate to the project
 
 ```bash
-cd Epics-UniEase
+cd Uni-Verse
 ```
 
 ### Install dependencies
