@@ -13,9 +13,9 @@
     --card: 227 75% 14%;
     --card-foreground: 210 89% 95%;
 
-    /* Primary: Cornflower (#7692FF) - much more visible on dark backgrounds */
-    --primary: 228 100% 73%;
-    --primary-foreground: 227 75% 8%;
+    /* Primary: Classic Tech Blue (#3b82f6) */
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
 
     /* Secondary: Sky Blue (#ABD2FA) */
     --secondary: 210 89% 83%;
@@ -33,12 +33,12 @@
 
     --border: 227 50% 25%;
     --input: 227 50% 25%;
-    --ring: 228 100% 73%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
     /* Custom UniVerse tokens - Enhanced Ocean Vibe */
-    --glow-primary: 0 0 40px hsl(228 100% 73% / 0.5), 0 0 80px hsl(228 100% 73% / 0.3);
+    --glow-primary: 0 0 40px hsl(217 91% 60% / 0.5), 0 0 80px hsl(217 91% 60% / 0.3);
     --glow-secondary: 0 0 40px hsl(210 89% 83% / 0.4), 0 0 80px hsl(210 89% 83% / 0.2);
     --glass-bg: hsl(227 75% 14% / 0.7);
     --glass-border: hsl(210 89% 83% / 0.15);
@@ -46,12 +46,12 @@
     /* Sidebar */
     --sidebar-background: 227 75% 10%;
     --sidebar-foreground: 210 89% 95%;
-    --sidebar-primary: 228 100% 73%;
-    --sidebar-primary-foreground: 227 75% 8%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
     --sidebar-accent: 227 50% 25%;
     --sidebar-accent-foreground: 210 89% 95%;
     --sidebar-border: 227 50% 25%;
-    --sidebar-ring: 228 100% 73%;
+    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
