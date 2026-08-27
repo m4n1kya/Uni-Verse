@@ -40,7 +40,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-blue-500 to-indigo-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -88,7 +88,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-cyan-500 to-blue-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -136,7 +136,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-emerald-500 to-teal-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -184,7 +184,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-orange-500 to-amber-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -232,7 +232,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-pink-500 to-rose-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -280,7 +280,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-violet-500 to-purple-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -328,7 +328,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-lime-500 to-emerald-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -376,7 +376,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-red-500 to-orange-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -424,7 +424,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-blue-500 to-indigo-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -472,7 +472,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-cyan-500 to-blue-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -520,7 +520,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-emerald-500 to-teal-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -568,7 +568,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-orange-500 to-amber-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -616,7 +616,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-pink-500 to-rose-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -664,7 +664,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-violet-500 to-purple-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -712,7 +712,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-lime-500 to-emerald-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -760,7 +760,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-red-500 to-orange-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -808,7 +808,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-blue-500 to-indigo-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -856,7 +856,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-cyan-500 to-blue-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -904,7 +904,7 @@ export const companiesData: Company[] = [
       "DP",
       "Probability"
     ],
-    "color": "from-blue-500 to-indigo-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -952,7 +952,7 @@ export const companiesData: Company[] = [
       "DP",
       "Probability"
     ],
-    "color": "from-cyan-500 to-blue-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1000,7 +1000,7 @@ export const companiesData: Company[] = [
       "DP",
       "Probability"
     ],
-    "color": "from-emerald-500 to-teal-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1048,7 +1048,7 @@ export const companiesData: Company[] = [
       "DP",
       "Probability"
     ],
-    "color": "from-orange-500 to-amber-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1096,7 +1096,7 @@ export const companiesData: Company[] = [
       "DP",
       "Probability"
     ],
-    "color": "from-pink-500 to-rose-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1144,7 +1144,7 @@ export const companiesData: Company[] = [
       "DP",
       "Probability"
     ],
-    "color": "from-violet-500 to-purple-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1192,7 +1192,7 @@ export const companiesData: Company[] = [
       "DP",
       "Probability"
     ],
-    "color": "from-lime-500 to-emerald-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1240,7 +1240,7 @@ export const companiesData: Company[] = [
       "DP",
       "Probability"
     ],
-    "color": "from-red-500 to-orange-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1288,7 +1288,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-blue-500 to-indigo-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1336,7 +1336,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-cyan-500 to-blue-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1384,7 +1384,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-emerald-500 to-teal-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1432,7 +1432,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-orange-500 to-amber-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1480,7 +1480,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-pink-500 to-rose-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1528,7 +1528,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-violet-500 to-purple-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1576,7 +1576,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-lime-500 to-emerald-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1624,7 +1624,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-red-500 to-orange-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1672,7 +1672,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-blue-500 to-indigo-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1720,7 +1720,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-cyan-500 to-blue-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1768,7 +1768,7 @@ export const companiesData: Company[] = [
       "Strings",
       "Logic"
     ],
-    "color": "from-emerald-500 to-teal-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1816,7 +1816,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-blue-500 to-indigo-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1864,7 +1864,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-cyan-500 to-blue-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",
@@ -1912,7 +1912,7 @@ export const companiesData: Company[] = [
       "DP",
       "Arrays"
     ],
-    "color": "from-emerald-500 to-teal-500",
+    "color": "from-primary to-secondary",
     "prepMaterial": [
       {
         "type": "leetcode",

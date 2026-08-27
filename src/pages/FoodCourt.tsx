@@ -139,7 +139,7 @@ const FoodCourt = () => {
               <div
                 key={vendor.id}
                 onClick={() => setSelectedVendor(vendor)}
-                className="glass-card overflow-hidden cursor-pointer hover:glow-orange transition-all animate-fade-in group"
+                className="glass-card overflow-hidden cursor-pointer hover:glow-primary transition-all animate-fade-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="h-32 bg-white flex items-center justify-center p-4">
@@ -178,7 +178,7 @@ const FoodCourt = () => {
               v.menu.filter((m) => m.isSpecial).map((item) => (
                 <div
                   key={`${v.id}-${item.id}`}
-                  className="glass-card p-4 min-w-[200px] shrink-0 hover:glow-orange transition-all"
+                  className="glass-card p-4 min-w-[200px] shrink-0 hover:glow-primary transition-all"
                 >
                   <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full">
                     {v.name}

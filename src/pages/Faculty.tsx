@@ -129,7 +129,7 @@ const Faculty = () => {
               <div
                 key={faculty.id}
                 onClick={() => setSelectedFaculty(faculty)}
-                className="glass-card p-4 cursor-pointer hover:glow-orange transition-all animate-fade-in group"
+                className="glass-card p-4 cursor-pointer hover:glow-primary transition-all animate-fade-in group"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 {/* Avatar */}

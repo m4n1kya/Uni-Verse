@@ -15,12 +15,12 @@ import cardJourney from "@/assets/card-journey.jpg";
 import cardCareer from "@/assets/card-career.jpg";
 
 const quickLinks = [
-  { icon: BookOpen, label: "E-Books", path: "/ebooks", color: "from-orange-500 to-red-500" },
-  { icon: Users, label: "Faculty", path: "/faculty", color: "from-purple-500 to-pink-500" },
-  { icon: UtensilsCrossed, label: "Food", path: "/food", color: "from-green-500 to-emerald-500" },
-  { icon: Bus, label: "Transport", path: "/transport", color: "from-blue-500 to-cyan-500" },
-  { icon: GraduationCap, label: "Journey", path: "/journey", color: "from-yellow-500 to-orange-500" },
-  { icon: Briefcase, label: "Career", path: "/career", color: "from-indigo-500 to-blue-500" },
+  { icon: BookOpen, label: "E-Books", path: "/ebooks", color: "from-primary to-secondary" },
+  { icon: Users, label: "Faculty", path: "/faculty", color: "from-secondary to-accent" },
+  { icon: UtensilsCrossed, label: "Food", path: "/food", color: "from-primary/80 to-accent/80" },
+  { icon: Bus, label: "Transport", path: "/transport", color: "from-secondary/80 to-primary/80" },
+  { icon: GraduationCap, label: "Journey", path: "/journey", color: "from-accent to-secondary" },
+  { icon: Briefcase, label: "Career", path: "/career", color: "from-primary to-accent" },
 ];
 
 const featuredModules = [
@@ -98,7 +98,7 @@ const Index = () => {
             {trendingTopics.map((topic, i) => (
               <div
                 key={topic.title}
-                className="glass-card p-4 flex items-center gap-4 cursor-pointer hover:glow-orange transition-all duration-300 animate-slide-up-fade opacity-0"
+                className="glass-card p-4 flex items-center gap-4 cursor-pointer hover:glow-primary transition-all duration-300 animate-slide-up-fade opacity-0"
                 style={{ animationFillMode: "forwards", animationDelay: `${(i + 4) * 0.1}s` }}
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
@@ -122,8 +122,8 @@ const Index = () => {
               {[
                 { label: "E-Books", value: "500+", color: "text-primary" },
                 { label: "Faculty", value: "120+", color: "text-secondary" },
-                { label: "Subjects", value: "80+", color: "text-green-500" },
-                { label: "Companies", value: "50+", color: "text-yellow-500" },
+                { label: "Subjects", value: "80+", color: "text-accent" },
+                { label: "Companies", value: "50+", color: "text-primary/80" },
               ].map((stat, i) => (
                 <div 
                   key={stat.label} 
@@ -171,9 +171,9 @@ const Index = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
                   {[
-                    { icon: Zap, title: "Fast & Fluid", desc: "No more clunky portals. Experience speed.", color: "text-yellow-500" },
-                    { icon: Shield, title: "Reliable", desc: "Real-time data you can trust everyday.", color: "text-blue-500" },
-                    { icon: CheckCircle2, title: "All-in-One", desc: "Academics, Food, Travel. Unified.", color: "text-green-500" },
+                    { icon: Zap, title: "Fast & Fluid", desc: "No more clunky portals. Experience speed.", color: "text-accent" },
+                    { icon: Shield, title: "Reliable", desc: "Real-time data you can trust everyday.", color: "text-primary" },
+                    { icon: CheckCircle2, title: "All-in-One", desc: "Academics, Food, Travel. Unified.", color: "text-secondary" },
                   ].map((feature, i) => (
                     <div key={i} className="glass-card p-4 flex flex-col items-center text-center hover:bg-white/5 transition-colors">
                       <feature.icon className={`w-8 h-8 ${feature.color} mb-3`} />

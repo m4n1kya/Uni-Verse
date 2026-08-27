@@ -85,17 +85,17 @@ const Career = () => {
                 <p className="text-sm text-muted-foreground">Total Offers</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto rounded-full bg-green-500/20 flex items-center justify-center mb-3">
-                  <DollarSign className="w-8 h-8 text-green-500" />
+                <div className="w-16 h-16 mx-auto rounded-full bg-secondary/20 flex items-center justify-center mb-3">
+                  <DollarSign className="w-8 h-8 text-secondary" />
                 </div>
-                <p className="text-3xl font-display font-bold text-green-500">{placementStats.avgPackage}L</p>
+                <p className="text-3xl font-display font-bold text-secondary">{placementStats.avgPackage}L</p>
                 <p className="text-sm text-muted-foreground">Avg Package</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto rounded-full bg-yellow-500/20 flex items-center justify-center mb-3">
-                  <TrendingUp className="w-8 h-8 text-yellow-500" />
+                <div className="w-16 h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-3">
+                  <TrendingUp className="w-8 h-8 text-accent" />
                 </div>
-                <p className="text-3xl font-display font-bold text-yellow-500">{placementStats.highestPackage}L</p>
+                <p className="text-3xl font-display font-bold text-accent">{placementStats.highestPackage}L</p>
                 <p className="text-sm text-muted-foreground">Highest Package</p>
               </div>
               <div className="text-center">
@@ -145,7 +145,7 @@ const Career = () => {
             <button
               onClick={() => { setShowAll(!showAll); setCurrentPage(1); }}
               className={`px-4 py-2 text-sm font-medium rounded-xl border transition-colors shrink-0 ${
-                showAll ? 'bg-primary text-primary-foreground border-primary glow-orange' : 'bg-muted/50 border-border hover:bg-muted text-muted-foreground'
+                showAll ? 'bg-primary text-primary-foreground border-primary glow-primary' : 'bg-muted/50 border-border hover:bg-muted text-muted-foreground'
               }`}
             >
               {showAll ? "Show Paginated" : "Show All"}
@@ -169,7 +169,7 @@ const Career = () => {
                       key={company.id}
                       onClick={() => handleSelect(company)}
                       className={`glass-card p-5 cursor-pointer transition-all duration-300 animate-fade-in group flex flex-col h-full ${
-                        isEligible ? "hover:glow-orange hover:-translate-y-1" : "opacity-50"
+                        isEligible ? "hover:glow-primary hover:-translate-y-1" : "opacity-50"
                       }`}
                       style={{ animationDelay: `${(index % 10) * 0.05}s` }}
                     >
@@ -180,7 +180,7 @@ const Career = () => {
                         <div className="flex-1 min-w-0">
                           <h3 className="font-semibold text-base truncate group-hover:text-primary transition-colors">{company.name}</h3>
                           <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
-                            isEligible ? "bg-green-500/15 text-green-500 border border-green-500/20" : "bg-red-500/15 text-red-400 border border-red-500/20"
+                            isEligible ? "bg-secondary/15 text-secondary border border-secondary/20" : "bg-destructive/15 text-destructive-foreground border border-destructive/50"
                           }`}>
                             {isEligible ? "Eligible" : `Need ${company.gpaCutoff} CGPA`}
                           </span>

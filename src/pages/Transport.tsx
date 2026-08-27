@@ -104,7 +104,7 @@ const Transport = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {cabServices.map((cab) => (
-            <div key={cab.name} className="glass-card p-4 hover:glow-orange transition-all">
+            <div key={cab.name} className="glass-card p-4 hover:glow-primary transition-all">
               <h3 className="font-semibold text-lg">{cab.name}</h3>
               <p className="text-sm text-muted-foreground mt-1">{cab.phone}</p>
               <Button className="w-full mt-4" variant="default">

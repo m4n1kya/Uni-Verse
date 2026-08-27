@@ -165,7 +165,7 @@ const Journey = () => {
               href={`https://roadmap.sh/${r.id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card p-5 hover:glow-orange transition-all duration-300 hover:-translate-y-1 group animate-fade-in flex flex-col h-full bg-background/60"
+              className="glass-card p-5 hover:glow-primary transition-all duration-300 hover:-translate-y-1 group animate-fade-in flex flex-col h-full bg-background/60"
               style={{ animationDelay: `${(index % 10) * 0.05}s` }}
             >
               <div className="flex items-start justify-between mb-4">
@@ -218,7 +218,7 @@ const Journey = () => {
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center ${
                       year.completed
-                        ? "bg-primary text-primary-foreground glow-orange"
+                        ? "bg-primary text-primary-foreground glow-primary"
                         : "bg-muted text-muted-foreground"
                     }`}
                   >
@@ -234,7 +234,7 @@ const Journey = () => {
                 <div className={`ml-20 md:ml-0 md:w-[calc(50%-3rem)] ${index % 2 === 0 ? "" : "md:mr-auto"}`}>
                   <div
                     onClick={() => setSelectedYear(year)}
-                    className={`glass-card p-6 cursor-pointer transition-all hover:glow-orange ${
+                    className={`glass-card p-6 cursor-pointer transition-all hover:glow-primary ${
                       year.completed ? "border-l-4 border-primary" : ""
                     }`}
                   >

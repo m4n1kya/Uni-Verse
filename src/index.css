@@ -6,59 +6,60 @@
 
 @layer base {
   :root {
-    /* UniVerse Dark Anime Theme */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    /* UniVerse Ocean Theme */
+    --background: 227 75% 8%;
+    --foreground: 210 89% 95%;
 
-    --card: 222 47% 9%;
-    --card-foreground: 210 40% 98%;
+    --card: 227 75% 14%;
+    --card-foreground: 210 89% 95%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 227 75% 12%;
+    --popover-foreground: 210 89% 95%;
 
-    /* Vibrant Anime Orange */
-    --primary: 18 100% 60%;
-    --primary-foreground: 222 47% 6%;
+    /* Primary: Royal Blue (#1B2CC1) */
+    --primary: 234 75% 43%;
+    --primary-foreground: 210 89% 95%;
 
-    /* Deep Purple Secondary */
-    --secondary: 260 60% 45%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary: Cornflower (#7692FF) */
+    --secondary: 228 100% 73%;
+    --secondary-foreground: 227 75% 14%;
 
-    --muted: 222 30% 15%;
-    --muted-foreground: 215 20% 55%;
+    /* Accent: Sky Blue (#ABD2FA) */
+    --accent: 210 89% 83%;
+    --accent-foreground: 227 75% 14%;
 
-    --accent: 18 100% 50%;
-    --accent-foreground: 222 47% 6%;
+    --muted: 227 50% 25%;
+    --muted-foreground: 210 50% 70%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 18 100% 60%;
+    --border: 227 50% 25%;
+    --input: 227 50% 25%;
+    --ring: 234 75% 43%;
 
     --radius: 0.75rem;
 
-    /* Custom UniVerse tokens - Enhanced Anime Vibe */
-    --glow-orange: 0 0 40px hsl(18 100% 60% / 0.4), 0 0 80px hsl(18 100% 50% / 0.2);
-    --glow-purple: 0 0 40px hsl(260 60% 55% / 0.4), 0 0 80px hsl(260 60% 45% / 0.2);
-    --glass-bg: hsl(222 47% 9% / 0.7);
-    --glass-border: hsl(210 40% 98% / 0.08);
+    /* Custom UniVerse tokens - Enhanced Ocean Vibe */
+    --glow-primary: 0 0 40px hsl(234 75% 43% / 0.5), 0 0 80px hsl(234 75% 43% / 0.3);
+    --glow-secondary: 0 0 40px hsl(228 100% 73% / 0.4), 0 0 80px hsl(228 100% 73% / 0.2);
+    --glass-bg: hsl(227 75% 14% / 0.7);
+    --glass-border: hsl(210 89% 83% / 0.15);
 
     /* Sidebar */
-    --sidebar-background: 222 47% 7%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 18 100% 60%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 222 30% 15%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 30% 15%;
-    --sidebar-ring: 18 100% 60%;
+    --sidebar-background: 227 75% 10%;
+    --sidebar-foreground: 210 89% 95%;
+    --sidebar-primary: 234 75% 43%;
+    --sidebar-primary-foreground: 210 89% 95%;
+    --sidebar-accent: 227 50% 25%;
+    --sidebar-accent-foreground: 210 89% 95%;
+    --sidebar-border: 227 50% 25%;
+    --sidebar-ring: 234 75% 43%;
   }
 
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    --background: 227 75% 8%;
+    --foreground: 210 89% 95%;
   }
 }
 
@@ -72,37 +73,31 @@
     font-family: 'Inter', system-ui, sans-serif;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', system-ui, sans-serif;
   }
 }
 
 @layer components {
-
   /* Premium Glassmorphism Card */
   .glass-card {
     @apply relative overflow-hidden rounded-xl transition-all duration-300 ease-out;
-    background: linear-gradient(145deg, hsl(222 47% 12% / 0.8), hsl(222 47% 8% / 0.7));
+    background: linear-gradient(145deg, hsl(227 75% 16% / 0.8), hsl(227 75% 10% / 0.7));
     backdrop-filter: blur(40px);
     border: 1px solid var(--glass-border);
-    box-shadow: inset 0 1px 0 0 hsl(210 40% 98% / 0.05), 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 1px 0 0 hsl(210 89% 95% / 0.05), 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   }
 
   .glass-card::before {
     content: '';
     @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
-    background: linear-gradient(135deg, hsl(18 100% 65% / 0.15), transparent);
+    background: linear-gradient(135deg, hsl(234 75% 43% / 0.15), transparent);
   }
 
   .glass-card:hover {
     transform: translateY(-4px);
-    border-color: hsl(210 40% 98% / 0.2);
-    box-shadow: inset 0 1px 0 0 hsl(210 40% 98% / 0.1), 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+    border-color: hsl(210 89% 83% / 0.3);
+    box-shadow: inset 0 1px 0 0 hsl(210 89% 95% / 0.1), 0 12px 40px 0 rgba(9, 21, 64, 0.8);
   }
 
   .glass-card:hover::before {
@@ -110,18 +105,32 @@
   }
 
   /* Glow Effect */
-  .glow-orange {
-    box-shadow: var(--glow-orange);
+  .glow-primary {
+    box-shadow: var(--glow-primary);
   }
 
-  .glow-purple {
-    box-shadow: var(--glow-purple);
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
   }
 
-  /* Anime-style gradient text */
+  /* Advanced Gradient Text */
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(18 100% 65%), hsl(35 100% 60%));
+    background-image: linear-gradient(135deg, hsl(228 100% 73%), hsl(210 89% 83%));
+  }
+  
+  .gradient-text-alt {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(234 75% 43%), hsl(228 100% 73%));
+  }
+
+  /* Advanced Gradient Backgrounds */
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(234 75% 43%), hsl(228 100% 73%));
+  }
+  
+  .gradient-bg-light {
+    background: linear-gradient(135deg, hsl(228 100% 73%), hsl(210 89% 83%));
   }
 
   /* Content Rail */
@@ -130,7 +139,7 @@
     scroll-snap-type: x mandatory;
   }
 
-  .content-rail>* {
+  .content-rail > * {
     scroll-snap-align: start;
     flex-shrink: 0;
   }
@@ -139,8 +148,8 @@
   .hero-gradient {
     background: linear-gradient(180deg,
         transparent 0%,
-        hsl(222 47% 6% / 0.6) 50%,
-        hsl(222 47% 6%) 100%);
+        hsl(227 75% 8% / 0.6) 50%,
+        hsl(227 75% 8%) 100%);
   }
 
   /* Floating Animation */
@@ -149,15 +158,8 @@
   }
 
   @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 
   /* Pulse Glow */
@@ -166,15 +168,8 @@
   }
 
   @keyframes pulseGlow {
-
-    0%,
-    100% {
-      box-shadow: 0 0 20px hsl(18 100% 50% / 0.3);
-    }
-
-    50% {
-      box-shadow: 0 0 40px hsl(18 100% 50% / 0.6);
-    }
+    0%, 100% { box-shadow: 0 0 20px hsl(234 75% 43% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(234 75% 43% / 0.6); }
   }
 
   /* Scrollbar Hide */
@@ -199,24 +194,22 @@
     inset: 0;
     background: linear-gradient(90deg,
         transparent,
-        hsl(18 100% 60% / 0.1),
+        hsl(234 75% 43% / 0.1),
         transparent);
     transform: translateX(-100%);
     animation: shimmer 2s infinite;
   }
 
   @keyframes shimmer {
-    100% {
-      transform: translateX(100%);
-    }
+    100% { transform: translateX(100%); }
   }
 
   /* Bottom Navigation */
   .bottom-nav {
     @apply fixed bottom-0 left-0 right-0 z-50 md:hidden;
-    background: hsl(222 47% 7% / 0.95);
+    background: hsl(227 75% 10% / 0.95);
     backdrop-filter: blur(20px);
-    border-top: 1px solid hsl(222 30% 18%);
+    border-top: 1px solid hsl(227 50% 25%);
   }
 }
 

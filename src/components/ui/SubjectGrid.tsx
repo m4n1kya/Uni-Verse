@@ -19,112 +19,112 @@ const categoryConfig: Record<string, { text: string; borderTop: string; shadowGl
     borderTop: "border-t-blue-500",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(59,130,246,0.3)]", 
     icon: Terminal,
-    cardBg: "from-blue-900/20 to-blue-950/10"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   Math: { 
     text: "text-violet-500", 
     borderTop: "border-t-violet-500",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(139,92,246,0.3)]", 
     icon: Calculator,
-    cardBg: "from-violet-900/20 to-violet-950/10"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   Engineering: { 
     text: "text-emerald-500", 
     borderTop: "border-t-emerald-500",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(16,185,129,0.3)]", 
     icon: PenTool,
-    cardBg: "from-emerald-900/20 to-emerald-950/10"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   Science: { 
     text: "text-cyan-500", 
     borderTop: "border-t-cyan-500",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(6,182,212,0.3)]", 
     icon: FlaskConical,
-    cardBg: "from-cyan-900/20 to-cyan-950/10"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   Humanities: { 
     text: "text-rose-500", 
     borderTop: "border-t-rose-500",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(244,63,94,0.3)]", 
     icon: Globe,
-    cardBg: "from-rose-900/20 to-rose-950/10"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Program Core": { 
     text: "text-blue-400", 
     borderTop: "border-t-blue-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(96,165,250,0.3)]", 
     icon: Book,
-    cardBg: "from-blue-900/25 to-indigo-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Program Elective": { 
     text: "text-violet-400", 
     borderTop: "border-t-violet-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(167,139,250,0.3)]", 
     icon: Book,
-    cardBg: "from-violet-900/25 to-purple-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Natural Science Core": { 
     text: "text-cyan-400", 
     borderTop: "border-t-cyan-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(34,211,238,0.3)]", 
     icon: FlaskConical,
-    cardBg: "from-cyan-900/25 to-sky-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Basic Engineering Core": { 
     text: "text-emerald-400", 
     borderTop: "border-t-emerald-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(52,211,153,0.3)]", 
     icon: PenTool,
-    cardBg: "from-emerald-900/25 to-green-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Skill Development": { 
     text: "text-orange-400", 
     borderTop: "border-t-orange-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(251,146,60,0.3)]", 
     icon: Terminal,
-    cardBg: "from-orange-900/25 to-amber-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Humanities Core": { 
     text: "text-rose-400", 
     borderTop: "border-t-rose-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(251,113,133,0.3)]", 
     icon: Globe,
-    cardBg: "from-rose-900/25 to-pink-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Project & Internships": { 
     text: "text-yellow-400", 
     borderTop: "border-t-yellow-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(250,204,21,0.3)]", 
     icon: Briefcase,
-    cardBg: "from-yellow-900/25 to-amber-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Natural Science Elective": { 
     text: "text-teal-400", 
     borderTop: "border-t-teal-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(45,212,191,0.3)]", 
     icon: FlaskConical,
-    cardBg: "from-teal-900/25 to-cyan-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Multidisciplinary Elective": { 
     text: "text-sky-400", 
     borderTop: "border-t-sky-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(56,189,248,0.3)]", 
     icon: Layers,
-    cardBg: "from-sky-900/25 to-blue-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Humanities Elective": { 
     text: "text-pink-400", 
     borderTop: "border-t-pink-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(244,114,182,0.3)]", 
     icon: Globe,
-    cardBg: "from-pink-900/25 to-rose-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   "Open Elective": { 
     text: "text-lime-400", 
     borderTop: "border-t-lime-400",
     shadowGlow: "group-hover:shadow-[0_8px_30px_rgb(163,230,53,0.3)]", 
     icon: Star,
-    cardBg: "from-lime-900/25 to-green-950/15"
+    cardBg: "from-primary/20 to-secondary/10"
   },
   Default: { 
     text: "text-white", 
