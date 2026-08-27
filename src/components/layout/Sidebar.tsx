@@ -42,7 +42,7 @@ export function Sidebar() {
         </div>
         {!collapsed && (
           <span className="font-display font-bold text-xl gradient-text">
-            UniEase
+            Uni-Verse
           </span>
         )}
       </div>

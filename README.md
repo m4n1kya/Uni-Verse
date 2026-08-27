@@ -1,4 +1,4 @@
-# Epics-UniEase
+# Uni-Verse
 
 A modern university resource management platform designed to centralize essential campus services into a single, responsive web application.
 
@@ -6,7 +6,7 @@ A modern university resource management platform designed to centralize essentia
 
 ## Overview
 
-Epics-UniEase simplifies access to important university resources by providing students with a unified platform for academic and campus-related information.
+Uni-Verse simplifies access to important university resources by providing students with a unified platform for academic and campus-related information.
 
 The application offers an intuitive interface for accessing faculty details, study materials, transportation schedules, food court information, and career resources.
 
@@ -38,7 +38,7 @@ The application offers an intuitive interface for accessing faculty details, stu
 ## Project Structure
 
 ```text
-Epics-UniEase
+Uni-Verse
 │
 ├── public/
 ├── src/

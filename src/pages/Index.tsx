@@ -48,7 +48,7 @@ const Index = () => {
       <MainLayout>
         {/* Hero Banner */}
         <HeroBanner
-          title="Welcome to UniEase"
+          title="Welcome to Uni-Verse"
           subtitle="Your Academic Companion"
           description="Access everything you need for university life in one place. E-books, transport, food, faculty contacts, and career guidance."
           image={heroCampus}
@@ -148,7 +148,7 @@ const Index = () => {
             <div className="p-6 md:p-8">
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h2 className="font-display font-bold text-2xl md:text-3xl gradient-text">About UniEase</h2>
+                  <h2 className="font-display font-bold text-2xl md:text-3xl gradient-text">About Uni-Verse</h2>
                   <p className="text-muted-foreground mt-1">Reimagining the University Experience</p>
                 </div>
                 <button
@@ -162,10 +162,10 @@ const Index = () => {
               <div className="space-y-6">
                 <div className="prose dark:prose-invert max-w-none">
                   <p className="text-lg leading-relaxed">
-                    UniEase was born from a simple observation: student life is fragmented. Between checking bus schedules, finding library books, looking up faculty contacts, and figuring out what's for lunch, students waste valuable time navigating specific, disconnected systems.
+                    Uni-Verse was born from a simple observation: student life is fragmented. Between checking bus schedules, finding library books, looking up faculty contacts, and figuring out what's for lunch, students waste valuable time navigating specific, disconnected systems.
                   </p>
                   <p className="text-lg leading-relaxed mt-4">
-                    We built UniEase to be your <strong>Academic Super-App</strong>—a single, beautiful interface that brings everything you need onto one screen.
+                    We built Uni-Verse to be your <strong>Academic Super-App</strong>—a single, beautiful interface that brings everything you need onto one screen.
                   </p>
                 </div>
 

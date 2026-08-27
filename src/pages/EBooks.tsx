@@ -364,7 +364,7 @@ const EBooks = () => {
 
   const [recentViews, setRecentViews] = useState<any[]>(() => {
     try {
-      const saved = localStorage.getItem("uniease_recent_views");
+      const saved = localStorage.getItem("universe_recent_views");
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -372,7 +372,7 @@ const EBooks = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem("uniease_recent_views", JSON.stringify(recentViews));
+    localStorage.setItem("universe_recent_views", JSON.stringify(recentViews));
   }, [recentViews]);
 
   const handleSelectBook = (book: any) => {
