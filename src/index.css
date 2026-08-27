@@ -16,8 +16,8 @@
     --popover: 227 75% 12%;
     --popover-foreground: 210 89% 95%;
 
-    /* Primary: Royal Blue (#1B2CC1) */
-    --primary: 234 75% 43%;
+    /* Primary: Brightened Royal Blue for better contrast */
+    --primary: 234 85% 58%;
     --primary-foreground: 210 89% 95%;
 
     /* Secondary: Cornflower (#7692FF) */
@@ -29,19 +29,19 @@
     --accent-foreground: 227 75% 14%;
 
     --muted: 227 50% 25%;
-    --muted-foreground: 210 50% 70%;
+    --muted-foreground: 210 50% 75%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 227 50% 25%;
     --input: 227 50% 25%;
-    --ring: 234 75% 43%;
+    --ring: 234 85% 58%;
 
     --radius: 0.75rem;
 
     /* Custom UniVerse tokens - Enhanced Ocean Vibe */
-    --glow-primary: 0 0 40px hsl(234 75% 43% / 0.5), 0 0 80px hsl(234 75% 43% / 0.3);
+    --glow-primary: 0 0 40px hsl(234 85% 58% / 0.5), 0 0 80px hsl(234 85% 58% / 0.3);
     --glow-secondary: 0 0 40px hsl(228 100% 73% / 0.4), 0 0 80px hsl(228 100% 73% / 0.2);
     --glass-bg: hsl(227 75% 14% / 0.7);
     --glass-border: hsl(210 89% 83% / 0.15);
@@ -49,12 +49,12 @@
     /* Sidebar */
     --sidebar-background: 227 75% 10%;
     --sidebar-foreground: 210 89% 95%;
-    --sidebar-primary: 234 75% 43%;
+    --sidebar-primary: 234 85% 58%;
     --sidebar-primary-foreground: 210 89% 95%;
     --sidebar-accent: 227 50% 25%;
     --sidebar-accent-foreground: 210 89% 95%;
     --sidebar-border: 227 50% 25%;
-    --sidebar-ring: 234 75% 43%;
+    --sidebar-ring: 234 85% 58%;
   }
 
   .dark {
@@ -64,6 +64,9 @@
 }
 
 @layer base {
+  html {
+    font-size: 15px; /* Scales the whole app down slightly (default is 16px) */
+  }
   * {
     @apply border-border;
   }
