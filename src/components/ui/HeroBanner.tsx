@@ -35,7 +35,7 @@ export function HeroBanner({
       </div>
 
       {/* Content */}
-      <div className="relative h-full flex flex-col justify-end p-6 md:p-12 max-w-2xl">
+      <div className="relative h-full flex flex-col justify-end p-6 md:p-12 max-w-3xl">
         <span className="text-primary font-medium text-sm uppercase tracking-wider mb-2 animate-fade-in">
           {subtitle}
         </span>

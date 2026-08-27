@@ -13,20 +13,17 @@
     --card: 227 75% 14%;
     --card-foreground: 210 89% 95%;
 
-    --popover: 227 75% 12%;
-    --popover-foreground: 210 89% 95%;
+    /* Primary: Cornflower (#7692FF) - much more visible on dark backgrounds */
+    --primary: 228 100% 73%;
+    --primary-foreground: 227 75% 8%;
 
-    /* Primary: Brightened Royal Blue for better contrast */
-    --primary: 234 85% 58%;
-    --primary-foreground: 210 89% 95%;
+    /* Secondary: Sky Blue (#ABD2FA) */
+    --secondary: 210 89% 83%;
+    --secondary-foreground: 227 75% 8%;
 
-    /* Secondary: Cornflower (#7692FF) */
-    --secondary: 228 100% 73%;
-    --secondary-foreground: 227 75% 14%;
-
-    /* Accent: Sky Blue (#ABD2FA) */
-    --accent: 210 89% 83%;
-    --accent-foreground: 227 75% 14%;
+    /* Accent: Royal Blue (#1B2CC1) */
+    --accent: 234 85% 65%;
+    --accent-foreground: 210 89% 95%;
 
     --muted: 227 50% 25%;
     --muted-foreground: 210 50% 75%;
@@ -36,25 +33,25 @@
 
     --border: 227 50% 25%;
     --input: 227 50% 25%;
-    --ring: 234 85% 58%;
+    --ring: 228 100% 73%;
 
     --radius: 0.75rem;
 
     /* Custom UniVerse tokens - Enhanced Ocean Vibe */
-    --glow-primary: 0 0 40px hsl(234 85% 58% / 0.5), 0 0 80px hsl(234 85% 58% / 0.3);
-    --glow-secondary: 0 0 40px hsl(228 100% 73% / 0.4), 0 0 80px hsl(228 100% 73% / 0.2);
+    --glow-primary: 0 0 40px hsl(228 100% 73% / 0.5), 0 0 80px hsl(228 100% 73% / 0.3);
+    --glow-secondary: 0 0 40px hsl(210 89% 83% / 0.4), 0 0 80px hsl(210 89% 83% / 0.2);
     --glass-bg: hsl(227 75% 14% / 0.7);
     --glass-border: hsl(210 89% 83% / 0.15);
 
     /* Sidebar */
     --sidebar-background: 227 75% 10%;
     --sidebar-foreground: 210 89% 95%;
-    --sidebar-primary: 234 85% 58%;
-    --sidebar-primary-foreground: 210 89% 95%;
+    --sidebar-primary: 228 100% 73%;
+    --sidebar-primary-foreground: 227 75% 8%;
     --sidebar-accent: 227 50% 25%;
     --sidebar-accent-foreground: 210 89% 95%;
     --sidebar-border: 227 50% 25%;
-    --sidebar-ring: 234 85% 58%;
+    --sidebar-ring: 228 100% 73%;
   }
 
   .dark {
