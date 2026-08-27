@@ -62,7 +62,7 @@
 
 @layer base {
   html {
-    font-size: 15px; /* Scales the whole app down slightly (default is 16px) */
+    font-size: 12.8px; /* Scales the whole app down to ~80% (default is 16px) */
   }
   * {
     @apply border-border;
