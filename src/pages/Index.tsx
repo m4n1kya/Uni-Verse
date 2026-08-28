@@ -4,7 +4,7 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import { HeroBanner } from "@/components/ui/HeroBanner";
 import { ContentRail } from "@/components/ui/ContentRail";
 import { ContentCard } from "@/components/ui/ContentCard";
-import { BookOpen, Bus, UtensilsCrossed, Users, GraduationCap, Briefcase, TrendingUp, Star, Clock, X, Zap, Shield, CheckCircle2 } from "lucide-react";
+import { BookMarked, BusFront, Coffee, UsersRound, Map, Target, TrendingUp, Star, Clock, X, Zap, Shield, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroCampus from "@/assets/dashboard-new.png";
 import cardEbooks from "@/assets/card-ebooks.jpg";
@@ -15,12 +15,12 @@ import cardJourney from "@/assets/card-journey.jpg";
 import cardCareer from "@/assets/card-career.jpg";
 
 const quickLinks = [
-  { icon: BookOpen, label: "E-Books", path: "/ebooks", color: "from-primary to-secondary" },
-  { icon: Users, label: "Faculty", path: "/faculty", color: "from-secondary to-accent" },
-  { icon: UtensilsCrossed, label: "Food", path: "/food", color: "from-primary/80 to-accent/80" },
-  { icon: Bus, label: "Transport", path: "/transport", color: "from-secondary/80 to-primary/80" },
-  { icon: GraduationCap, label: "Journey", path: "/journey", color: "from-accent to-secondary" },
-  { icon: Briefcase, label: "Career", path: "/career", color: "from-primary to-accent" },
+  { icon: BookMarked, label: "E-Books", path: "/ebooks", color: "from-emerald-400 to-teal-500" },
+  { icon: UsersRound, label: "Faculty", path: "/faculty", color: "from-orange-400 to-red-500" },
+  { icon: Coffee, label: "Food", path: "/food", color: "from-pink-400 to-rose-500" },
+  { icon: BusFront, label: "Transport", path: "/transport", color: "from-blue-400 to-indigo-500" },
+  { icon: Map, label: "Journey", path: "/journey", color: "from-violet-400 to-purple-500" },
+  { icon: Target, label: "Career", path: "/career", color: "from-amber-400 to-orange-500" },
 ];
 
 const featuredModules = [

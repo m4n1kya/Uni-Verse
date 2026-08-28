@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { 
-  BookOpen, 
-  Bus, 
-  UtensilsCrossed, 
-  Users, 
-  GraduationCap, 
-  Briefcase, 
+  BookMarked, 
+  BusFront, 
+  Coffee, 
+  UsersRound, 
+  Map, 
+  Target, 
   Home,
   ChevronLeft,
   ChevronRight,
@@ -16,12 +16,12 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { icon: Home, label: "Dashboard", path: "/" },
-  { icon: BookOpen, label: "E-Books & Academic", path: "/ebooks" },
-  { icon: Users, label: "Faculty", path: "/faculty" },
-  { icon: UtensilsCrossed, label: "Food Court", path: "/food" },
-  { icon: Bus, label: "Transport Hub", path: "/transport" },
-  { icon: GraduationCap, label: "Roadmap & Student Journey", path: "/journey" },
-  { icon: Briefcase, label: "Career Hub", path: "/career" },
+  { icon: BookMarked, label: "E-Books & Academic", path: "/ebooks" },
+  { icon: UsersRound, label: "Faculty", path: "/faculty" },
+  { icon: Coffee, label: "Food Court", path: "/food" },
+  { icon: BusFront, label: "Transport Hub", path: "/transport" },
+  { icon: Map, label: "Roadmap & Student Journey", path: "/journey" },
+  { icon: Target, label: "Career Hub", path: "/career" },
 ];
 
 export function Sidebar() {
