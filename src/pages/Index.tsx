@@ -57,8 +57,8 @@ const Index = () => {
         />
 
         {/* Quick Links */}
-        <section className="py-8 px-4 md:px-6">
-          <h2 className="font-display font-bold text-xl mb-4">Quick Access</h2>
+        <section className="py-16 px-4 md:px-6">
+          <h2 className="font-display font-bold text-2xl mb-8">Quick Access</h2>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
             {quickLinks.map((link, i) => (
               <button
@@ -92,8 +92,8 @@ const Index = () => {
         </ContentRail>
 
         {/* Trending Topics */}
-        <section className="py-8 px-4 md:px-6">
-          <h2 className="font-display font-bold text-xl mb-4">Trending Now</h2>
+        <section className="py-16 px-4 md:px-6">
+          <h2 className="font-display font-bold text-2xl mb-8">Trending Now</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {trendingTopics.map((topic, i) => (
               <div
@@ -115,8 +115,8 @@ const Index = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="py-8 px-4 md:px-6 mb-8">
-          <div className="glass-card p-6 md:p-8">
+        <section className="py-16 px-4 md:px-6 mb-16">
+          <div className="glass-card p-10 md:p-14">
             <h2 className="font-display font-bold text-xl mb-6 text-center">UniVerse Stats</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
