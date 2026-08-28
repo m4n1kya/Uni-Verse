@@ -1,119 +1,102 @@
-# Uni-Verse
-
-A modern university resource management platform designed to centralize essential campus services into a single, responsive web application.
-
----
-
-## Overview
-
-Uni-Verse simplifies access to important university resources by providing students with a unified platform for academic and campus-related information.
-
-The application offers an intuitive interface for accessing faculty details, study materials, transportation schedules, food court information, and career resources.
-
----
-
-## Features
-
-- Faculty Directory
-- Digital Library (E-Books)
-- Campus Transportation Information
-- Food Court Directory
-- Career Resources
-- Responsive User Interface
-- Fast Performance with Vite
+<div align="center">
+  <img src="docs/hero.png" alt="Uni-Verse Hero Banner" width="100%" />
+  
+  <br />
+  
+  # 🎓 Uni-Verse
+  
+  **Your Academic Super-App. Reimagining the University Experience.**
+  
+  [![Live Demo](https://img.shields.io/badge/Live_Demo-View_Website-blue?style=for-the-badge&logo=vercel)](https://uni-verse-swart.vercel.app/)
+  [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)]()
+  [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)]()
+  [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)]()
+  
+</div>
 
 ---
 
-## Tech Stack
+## 🚀 Overview
 
-| Category | Technologies |
-|----------|--------------|
-| Frontend | React, TypeScript |
-| Styling | Tailwind CSS, shadcn/ui |
-| Build Tool | Vite |
-| Package Manager | npm |
+**Uni-Verse** was born from a simple observation: student life is fragmented. Between checking bus schedules, finding library books, looking up faculty contacts, and figuring out what's for lunch, students waste valuable time navigating specific, disconnected systems. 
 
----
+We built Uni-Verse to be a single, beautifully designed interface that brings everything you need onto one screen. 
 
-## Project Structure
-
-```text
-Uni-Verse
-│
-├── public/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── hooks/
-│   ├── lib/
-│   ├── App.tsx
-│   └── main.tsx
-│
-├── package.json
-├── README.md
-└── vite.config.ts
-```
+**🔗 [Access the Live App Here](https://uni-verse-swart.vercel.app/)**
 
 ---
 
-## Getting Started
+## ✨ Features
 
-### Clone the repository
+<img src="docs/dashboard.png" alt="Uni-Verse Dashboard" width="100%" />
 
+- 📚 **E-Books & Academic Hub:** Seamlessly access your digital library and study materials.
+- 🧑‍🏫 **Faculty Directory:** Instantly find and connect with your professors.
+- 🍔 **Campus Food Court:** Check today's specials and discover what's hot right now.
+- 🚌 **Transport Hub:** Keep track of live bus schedules and book cabs instantly.
+- 🎓 **Student Journey:** Monitor your academic milestones and roadmap.
+- 💼 **Career Hub:** Explore placement predictors, analytics, and career resources.
+
+---
+
+## 🛠️ Tech Stack
+
+Built for speed and aesthetic excellence:
+
+| Technology | Purpose |
+|------------|----------|
+| **React + TypeScript** | Robust, scalable frontend architecture |
+| **Vite** | Lightning-fast build tooling and HMR |
+| **Tailwind CSS** | Highly customized, modern glassmorphism UI |
+| **Framer Motion** | Smooth, professional animations and transitions |
+| **Lucide Icons** | Beautiful, modern iconography |
+
+---
+
+## ⚙️ Getting Started
+
+To run Uni-Verse locally on your machine:
+
+### 1. Clone the repository
 ```bash
 git clone https://github.com/m4n1kya/Uni-Verse.git
 ```
 
-### Navigate to the project
-
+### 2. Navigate to the project
 ```bash
 cd Uni-Verse
 ```
 
-### Install dependencies
-
+### 3. Install dependencies
 ```bash
 npm install
 ```
 
-### Run the development server
-
+### 4. Run the development server
 ```bash
 npm run dev
 ```
 
-The application will be available at:
-
-```
-http://localhost:5173
-```
+The application will be instantly available at `http://localhost:5173`.
 
 ---
 
-## Screenshots
+## 🔮 Future Enhancements
 
-> Screenshots will be added soon.
-
----
-
-## Future Enhancements
-
-- Authentication System
-- Student Dashboard
-- Course Management
-- AI-powered Campus Assistant
-- Notification System
-- Dark Mode
-- Admin Panel
+- **Secure Authentication System**
+- **Personalized Student Dashboard (CGPA tracking, Timetables)**
+- **AI-Powered Campus Assistant Chatbot**
+- **Real-time Notifications**
 
 ---
 
-## Author
+## 👨‍💻 Author
 
 **Manikya N**
 
-GitHub: https://github.com/m4n1kya
+GitHub: [m4n1kya](https://github.com/m4n1kya)
 
----
-
-If you found this project useful, consider giving it a ⭐.
+<br/>
+<div align="center">
+  <i>If you found this project useful or aesthetically pleasing, consider giving it a ⭐!</i>
+</div>
