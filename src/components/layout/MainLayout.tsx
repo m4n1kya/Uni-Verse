@@ -140,7 +140,7 @@ export function MainLayout({ children }: MainLayoutProps) {
         <div className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="glass-card w-full max-w-md p-6 md:p-8 animate-scale-in relative border border-white/5 shadow-2xl">
             <button
-              onClick={() => setIsSignInModalOpen(false)}
+              aria-label="Close modal" onClick={() => setIsSignInModalOpen(false)}
               className="absolute top-4 right-4 p-2 rounded-lg hover:bg-muted transition-colors"
             >
               <X className="w-5 h-5" />
