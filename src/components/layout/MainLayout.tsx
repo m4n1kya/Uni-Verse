@@ -57,7 +57,7 @@ export function MainLayout({ children }: MainLayoutProps) {
           {isUserLoggedIn ? (
             <div className="relative">
               <button 
-                onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
+                aria-label="Toggle profile menu" onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
                 className="w-10 h-10 rounded-full bg-[#2e6b36] hover:bg-[#2e6b36]/90 flex items-center justify-center text-white text-lg font-medium shadow-md transition-all border-2 border-transparent focus:border-white/20 select-none"
               >
                 {getInitials(userEmail)}
