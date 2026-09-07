@@ -24,6 +24,10 @@ const navItems = [
   { icon: Target, label: "Career Hub", path: "/career" },
 ];
 
+/**
+ * Sidebar navigation component for desktop.
+ * Handles collapsible state and rendering of navigation items.
+ */
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
