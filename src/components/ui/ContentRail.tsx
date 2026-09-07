@@ -10,6 +10,9 @@ interface ContentRailProps {
   onViewAll?: () => void;
 }
 
+/**
+ * Horizontal scrolling container for displaying multiple ContentCards.
+ */
 export function ContentRail({ title, subtitle, children, className, onViewAll }: ContentRailProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
