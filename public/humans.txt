@@ -1,0 +1,8 @@
+/* TEAM */
+Developer: Manikya N
+Site: https://github.com/m4n1kya
+
+/* SITE */
+Last update: 2026
+Standards: HTML5, CSS3, React
+Components: Tailwind CSS, shadcn/ui
