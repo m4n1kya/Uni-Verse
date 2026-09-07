@@ -11,6 +11,9 @@ interface ContentCardProps {
   onClick?: () => void;
 }
 
+/**
+ * Reusable card component for displaying featured modules or items.
+ */
 export function ContentCard({
   image,
   title,
