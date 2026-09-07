@@ -16,6 +16,10 @@ const navItems = [
   { icon: Bus, label: "Transport", path: "/transport" },
 ];
 
+/**
+ * Bottom navigation bar for mobile devices.
+ * Sticky at the bottom of the viewport.
+ */
 export function BottomNav() {
   const location = useLocation();
 
