@@ -12,6 +12,10 @@ interface HeroBannerProps {
   className?: string;
 }
 
+/**
+ * Main hero banner component displayed on the landing page.
+ * Includes background image, title, and action buttons.
+ */
 export function HeroBanner({
   title,
   subtitle,
