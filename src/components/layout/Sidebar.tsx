@@ -85,7 +85,7 @@ export function Sidebar() {
 
       {/* Collapse Toggle */}
       <button
-        onClick={() => setCollapsed(!collapsed)}
+        aria-label="Toggle sidebar" onClick={() => setCollapsed(!collapsed)}
         className="m-3 p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors flex items-center justify-center"
       >
         {collapsed ? (
