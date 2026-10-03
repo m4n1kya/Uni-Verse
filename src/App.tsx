@@ -36,4 +36,4 @@ const App = () => (
   </QueryClientProvider>
 );
 
-export default App;
+// Main application router component`nexport default App;
