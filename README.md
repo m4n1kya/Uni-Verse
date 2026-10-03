@@ -100,3 +100,5 @@ GitHub: [m4n1kya](https://github.com/m4n1kya)
 <div align="center">
   <i>If you found this project useful or aesthetically pleasing, consider giving it a ⭐!</i>
 </div>
+## 🏛 Architecture
+This project uses a component-based architecture powered by React, with highly modular, reusable UI components stored in the "src/components" directory.
