@@ -148,7 +148,7 @@ export function MainLayout({ children }: MainLayoutProps) {
             
             <div className="text-center mb-6">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 text-primary flex items-center justify-center mx-auto mb-4 border border-primary/20 shadow-inner">
-                <User className="w-7 h-7" />
+                <User className="w-7 h-7" aria-hidden="true" />
               </div>
               <h2 className="font-display font-bold text-2xl text-foreground">Student Sign In</h2>
               <p className="text-muted-foreground text-sm mt-1">Authenticate with your college credentials</p>
