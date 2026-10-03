@@ -158,7 +158,7 @@ export function MainLayout({ children }: MainLayoutProps) {
               <div>
                 <label className="text-sm font-medium text-muted-foreground mb-1 block">College Email</label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" aria-hidden="true" />
                   <input
                     type="email"
                     value={emailInput}
