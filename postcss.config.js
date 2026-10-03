@@ -1,4 +1,4 @@
-export default {
+// PostCSS processing configuration`nexport default {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
