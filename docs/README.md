@@ -8,7 +8,7 @@ Welcome to the technical specification and architecture documentation for **Uni-
 |---|---|---|
 | **System Architecture** | [`ARCHITECTURE.md`](./ARCHITECTURE.md) | High-level system topology, service boundaries, and architectural pillars |
 | **API Specifications** | [`api/`](./api/) | REST endpoint contracts for authentication, transit, cafeteria, library, and career services |
-| **Database Schemas** | [`database/`](./database/) | PostgreSQL entity schemas, foreign key relationships, and indexing strategies |
+| **Database & Offline Sync** | [`database/`](./database/) | PostgreSQL entity schemas, offline sync engine, and indexing strategies |
 | **Design System** | [`design-system/`](./design-system/) | Dark-mode glassmorphism color tokens, typography scale, and Lucide icon standards |
 | **Accessibility (a11y)** | [`accessibility/`](./accessibility/) | WCAG 2.1 AA compliance standards, keyboard focus trapping, and ARIA live announcements |
 | **Security & Privacy** | [`security/`](./security/) | JWT refresh token rotation, RBAC permission matrix, CORS rules, and FERPA compliance |
