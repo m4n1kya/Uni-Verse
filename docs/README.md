@@ -7,7 +7,7 @@ Welcome to the technical specification and architecture documentation for **Uni-
 | Category | Path | Description |
 |---|---|---|
 | **System Architecture** | [`ARCHITECTURE.md`](./ARCHITECTURE.md) | High-level system topology, service boundaries, and architectural pillars |
-| **API Specifications** | [`api/`](./api/) | REST endpoint contracts for authentication, transit, cafeteria, library, and career services |
+| **API Specifications** | [`api/`](./api/) | REST endpoint contracts and WebSocket telemetry protocols for transit and dining |
 | **Database & Offline Sync** | [`database/`](./database/) | PostgreSQL entity schemas, offline sync engine, and indexing strategies |
 | **Design System** | [`design-system/`](./design-system/) | Dark-mode glassmorphism color tokens, typography scale, and Lucide icon standards |
 | **Accessibility (a11y)** | [`accessibility/`](./accessibility/) | WCAG 2.1 AA compliance standards, keyboard focus trapping, and ARIA live announcements |
