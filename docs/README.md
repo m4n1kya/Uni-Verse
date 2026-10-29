@@ -8,13 +8,13 @@ Welcome to the technical specification, system architecture, and operational run
 
 | Domain | Directory / Path | Key Specifications & Runbooks Covered |
 |---|---|---|
-| **System Architecture** | [`ARCHITECTURE.md`](./ARCHITECTURE.md)<br>[`architecture/`](./architecture/) | Core system topology, Vite Module Federation RFC, decoupled cross-domain event bus, and service boundaries |
-| **API Specifications** | [`api/`](./api/) | 15 REST service contracts and WebSocket real-time event streaming (`wss://`) for transit & food orders |
-| **Database & Ingestion** | [`database/`](./database/) | Relational SQL schemas, client offline sync engine, indexing strategies, and automated ETL data ingestion pipelines |
-| **Security & Zero-Trust** | [`security/`](./security/) | Zero-Trust API gateway, mutual TLS (mTLS), JWT token rotation, RBAC matrix, and FERPA privacy compliance |
-| **DevOps & Infrastructure** | [`devops/`](./devops/) | Vercel CI/CD edge pipeline, PWA offline caching, multi-region disaster recovery runbook, and RUM monitoring |
+| **System Architecture** | [`ARCHITECTURE.md`](./ARCHITECTURE.md)<br>[`architecture/`](./architecture/) | Core system topology, Module Federation RFC, cross-platform mobile bridge RFC, and decoupled event bus |
+| **API Specifications** | [`api/`](./api/) | 15 REST service contracts, WebSocket telemetry streams (`wss://`), and GDPR/DPDP data portability endpoints |
+| **Database & Caching** | [`database/`](./database/) | Relational schemas, Redis caching topologies, client offline sync engine, and automated ETL data pipelines |
+| **Security & Zero-Trust** | [`security/`](./security/) | Zero-Trust gateway, mTLS internal mesh, campus SSO (OIDC/SAML), JWT rotation, and RBAC matrix |
+| **DevOps & Infrastructure** | [`devops/`](./devops/) | Vercel CI/CD edge pipeline, PWA offline caching, blue-green canary release runbook, and multi-region DR |
 | **Design System** | [`design-system/`](./design-system/) | Pitch-black (`#09090b`) tokens, glassmorphism blur utilities, domain color accents, and Lucide icon rules |
-| **Accessibility (a11y)** | [`accessibility/`](./accessibility/) | WCAG 2.1 AA design patterns, keyboard focus trapping, ARIA live announcements, and contrast benchmarks |
+| **Accessibility (a11y)** | [`accessibility/`](./accessibility/) | WCAG 2.1 AA compliance benchmarks, screen reader verification transcripts, and CVD simulation audits |
 | **Performance** | [`performance/`](./performance/) | Route-level code splitting, asset preloading, rendering memoization, and Lighthouse Core Web Vitals |
 | **Testing & QA** | [`testing/`](./testing/) | Unit test suites, MSW network mocking, E2E user journeys, and k6 stress load testing scenarios |
 | **User Guides** | [`guides/`](./guides/) | Quick-start guide, interactive campus map walkthrough, and internationalization (i18n) roadmap |
