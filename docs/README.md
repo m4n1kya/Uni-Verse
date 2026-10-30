@@ -15,6 +15,6 @@ Welcome to the technical specification, system architecture, and operational run
 | **DevOps & Infrastructure** | [`devops/`](./devops/) | Vercel CI/CD edge pipeline, PWA offline caching, blue-green canary release runbook, and multi-region DR |
 | **Design System** | [`design-system/`](./design-system/) | Pitch-black (`#09090b`) tokens, glassmorphism blur utilities, domain color accents, and Lucide icon rules |
 | **Accessibility (a11y)** | [`accessibility/`](./accessibility/) | WCAG 2.1 AA compliance benchmarks, screen reader verification transcripts, and CVD simulation audits |
-| **Performance** | [`performance/`](./performance/) | Route-level code splitting, asset preloading, rendering memoization, and Lighthouse Core Web Vitals |
+| **Performance** | [`performance/`](./performance/) | Route code splitting, vendor chunking, runtime memoization, and Core Web Vitals budget |
 | **Testing & QA** | [`testing/`](./testing/) | Unit test suites, MSW network mocking, E2E user journeys, and k6 stress load testing scenarios |
 | **User Guides** | [`guides/`](./guides/) | Quick-start guide, interactive campus map walkthrough, and internationalization (i18n) roadmap |
