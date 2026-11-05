@@ -15,6 +15,6 @@ Welcome to the technical specification, system architecture, and operational run
 | **DevOps & Infrastructure** | [`devops/`](./devops/) | Infrastructure as Code (Terraform), Prometheus metrics, incident response matrix, and multi-region DR |
 | **Design System** | [`design-system/`](./design-system/) | Pitch-black (`#09090b`) tokens, glassmorphism blur utilities, domain color accents, and Lucide icon rules |
 | **Accessibility (a11y)** | [`accessibility/`](./accessibility/) | WCAG 2.1 AA compliance benchmarks, screen reader verification transcripts, and CVD simulation audits |
-| **Performance** | [`performance/`](./performance/) | Route code splitting, vendor chunking, runtime memoization, and Core Web Vitals budget |
+| **Performance & Optimization** | [`performance/`](./performance/) | HTTP/3 edge caching, DB query plans, WebP image pipelines, DOM virtualization, and Core Web Vitals budget |
 | **Testing & QA** | [`testing/`](./testing/) | Unit test suites, MSW network mocking, chaos engineering fault injection, and k6 stress load testing |
 | **User Guides** | [`guides/`](./guides/) | Quick-start guide, interactive campus map walkthrough, and internationalization (i18n) roadmap |
