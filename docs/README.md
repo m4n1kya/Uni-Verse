@@ -9,9 +9,9 @@ Welcome to the technical specification, system architecture, and operational run
 | Domain | Directory / Path | Key Specifications & Runbooks Covered |
 |---|---|---|
 | **System Architecture** | [`ARCHITECTURE.md`](./ARCHITECTURE.md)<br>[`architecture/`](./architecture/) | Core system topology, Module Federation RFC, mobile bridge RFC, AI assistant RAG pipeline, and event messaging |
-| **API Specifications** | [`api/`](./api/) | 15 REST contracts, WebSocket telemetry (`wss://`), webhook replay defense, and data portability endpoints |
+| **API Specifications** | [`api/`](./api/) | 15 REST contracts, WebSocket telemetry (`wss://`), contract testing (Pact), and webhook replay defense |
 | **Database & Caching** | [`database/`](./database/) | Relational schemas, Redis caching topologies, time-series table partitioning, and automated ETL pipelines |
-| **Security & Zero-Trust** | [`security/`](./security/) | CSP Level 3 headers, Zero-Trust gateway, mTLS mesh, secrets management, campus SSO, and RBAC matrix |
+| **Security & Zero-Trust** | [`security/`](./security/) | CSP Level 3 headers, Zero-Trust gateway, supply chain SBOM, secrets management, and campus SSO (OIDC) |
 | **DevOps & Infrastructure** | [`devops/`](./devops/) | Infrastructure as Code (Terraform), Prometheus metrics, incident response matrix, and multi-region DR |
 | **Design System** | [`design-system/`](./design-system/) | Pitch-black (`#09090b`) tokens, glassmorphism blur utilities, domain color accents, and Lucide icon rules |
 | **Accessibility (a11y)** | [`accessibility/`](./accessibility/) | WCAG 2.1 AA compliance benchmarks, screen reader verification transcripts, and CVD simulation audits |
