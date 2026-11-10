@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle, X, Send, Sparkles } from "lucide-react";
+import { MessageCircle, X, Send, Sparkles, Bot } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const quickActions = [
@@ -26,52 +26,55 @@ export function AIConcierge() {
     setTimeout(() => {
       setMessages(prev => [...prev, { 
         role: "ai", 
-        content: "I'm processing your request! This is a demo response. In the full version, I'll help you with academics, transport, food, faculty info, and career guidance." 
+        content: "I'm processing your request! In the full version, I'll provide real-time updates for academics, transport, food menus, faculty contacts, and career predictions." 
       }]);
-    }, 1000);
+    }, 800);
   };
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Sleek Floating Launch Button */}
       <button
         onClick={() => setIsOpen(true)}
         className={cn(
-          "fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center transition-all duration-300 hover:scale-110 pulse-glow",
-          isOpen && "scale-0 opacity-0"
+          "fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 w-12 h-12 md:w-13 md:h-13 rounded-2xl bg-gradient-to-tr from-primary to-accent text-primary-foreground flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-xl shadow-primary/30 hover:shadow-primary/50 border border-white/20 select-none cursor-pointer",
+          isOpen && "scale-0 opacity-0 pointer-events-none"
         )}
       >
-        <MessageCircle className="w-6 h-6" />
+        <Sparkles className="w-5 h-5 text-white" />
       </button>
 
-      {/* Chat Panel */}
+      {/* Modern Sleek Chat Panel */}
       <div
         className={cn(
-          "fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100vw-2rem)] md:w-96 h-[500px] max-h-[70vh] glass-card rounded-2xl flex flex-col transition-all duration-300 transform",
+          "fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100vw-2rem)] md:w-96 h-[500px] max-h-[70vh] sleek-card border border-white/10 shadow-2xl flex flex-col transition-all duration-300 transform bg-card/95 backdrop-blur-2xl",
           isOpen ? "scale-100 opacity-100" : "scale-90 opacity-0 pointer-events-none"
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-border">
+        <div className="flex items-center justify-between p-4 border-b border-white/[0.08]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-primary" />
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 flex items-center justify-center">
+              <Bot className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h3 className="font-display font-semibold">UniVerse AI</h3>
-              <p className="text-xs text-muted-foreground">Always here to help</p>
+              <div className="flex items-center gap-2">
+                <h3 className="font-display font-semibold text-sm">UniVerse AI</h3>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              </div>
+              <p className="text-[11px] text-muted-foreground">Always active on campus</p>
             </div>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 rounded-lg hover:bg-muted transition-colors"
+            className="p-1.5 rounded-xl hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground"
           >
-            <X className="w-5 h-5 text-muted-foreground" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide">
+        <div className="flex-1 overflow-y-auto p-4 space-y-3 scrollbar-hide">
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -82,10 +85,10 @@ export function AIConcierge() {
             >
               <div
                 className={cn(
-                  "max-w-[80%] px-4 py-2 rounded-2xl text-sm animate-fade-in",
+                  "max-w-[82%] px-3.5 py-2.5 rounded-2xl text-xs md:text-sm animate-fade-in leading-relaxed shadow-sm",
                   msg.role === "user"
-                    ? "bg-primary text-primary-foreground rounded-br-md"
-                    : "bg-muted text-foreground rounded-bl-md"
+                    ? "bg-primary text-primary-foreground rounded-br-sm shadow-primary/20 font-medium"
+                    : "bg-white/[0.05] border border-white/[0.06] text-foreground rounded-bl-sm"
                 )}
               >
                 {msg.content}
@@ -95,12 +98,12 @@ export function AIConcierge() {
         </div>
 
         {/* Quick Actions */}
-        <div className="px-4 py-2 flex gap-2 overflow-x-auto scrollbar-hide">
+        <div className="px-4 py-2 flex gap-1.5 overflow-x-auto scrollbar-hide border-t border-white/[0.04]">
           {quickActions.map((action) => (
             <button
               key={action}
               onClick={() => setMessage(action)}
-              className="px-3 py-1.5 text-xs bg-muted hover:bg-muted/80 rounded-full whitespace-nowrap transition-colors"
+              className="px-2.5 py-1 text-[11px] font-medium bg-white/[0.04] hover:bg-primary/15 hover:text-primary hover:border-primary/30 border border-white/[0.08] rounded-lg whitespace-nowrap transition-all"
             >
               {action}
             </button>
@@ -108,21 +111,21 @@ export function AIConcierge() {
         </div>
 
         {/* Input */}
-        <div className="p-4 border-t border-border">
-          <div className="flex gap-2">
+        <div className="p-3 border-t border-white/[0.08]">
+          <div className="flex items-center gap-2">
             <input
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              placeholder="Ask me anything..."
-              className="flex-1 bg-muted rounded-xl px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+              placeholder="Ask UniVerse AI..."
+              className="flex-1 bg-white/[0.03] border border-white/10 rounded-xl px-3.5 py-2 text-xs md:text-sm outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all text-foreground placeholder:text-muted-foreground/50"
             />
             <button
               onClick={handleSend}
-              className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 transition-colors"
+              className="w-9 h-9 rounded-xl bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 transition-all shadow-md shadow-primary/25 cursor-pointer"
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
