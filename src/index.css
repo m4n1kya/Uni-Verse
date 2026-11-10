@@ -41,7 +41,9 @@
     --glow-primary: 0 0 40px hsl(238 85% 65% / 0.3), 0 0 80px hsl(238 85% 65% / 0.1);
     --glow-secondary: 0 0 40px hsl(190 90% 50% / 0.3), 0 0 80px hsl(190 90% 50% / 0.1);
     --glass-bg: hsl(240 10% 4% / 0.6);
-    --glass-border: hsl(0 0% 100% / 0.05);
+    --glass-border: hsl(0 0% 100% / 0.08);
+    --glass-border-hover: hsl(238 85% 65% / 0.4);
+    --glass-surface: hsl(240 10% 6% / 0.7);
 
     /* Sidebar */
     --sidebar-background: 240 10% 2%;
@@ -102,6 +104,55 @@
 
   .glass-card:hover::before {
     @apply opacity-100;
+  }
+
+  /* Sleek Modern Glass Pill */
+  .glass-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 select-none;
+    background: hsl(240 10% 12% / 0.65);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.08);
+  }
+
+  .glass-pill:hover {
+    border-color: hsl(238 85% 65% / 0.4);
+    background: hsl(240 10% 16% / 0.75);
+    box-shadow: 0 0 16px -2px hsl(238 85% 65% / 0.25);
+  }
+
+  /* Sleek Modern Border & Surface Elevation */
+  .sleek-card {
+    @apply relative overflow-hidden rounded-2xl transition-all duration-300 ease-out;
+    background: linear-gradient(180deg, hsl(240 10% 7% / 0.75) 0%, hsl(240 10% 3% / 0.85) 100%);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(0 0% 100% / 0.07);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 hsl(0 0% 100% / 0.08);
+  }
+
+  .sleek-card:hover {
+    border-color: hsl(238 85% 65% / 0.35);
+    box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.7), 0 0 24px -2px hsl(238 85% 65% / 0.15), inset 0 1px 0 0 hsl(0 0% 100% / 0.15);
+  }
+
+  /* Sleek Status Dot Pulse */
+  .status-dot-pulse {
+    @apply relative flex h-2 w-2;
+  }
+
+  .status-dot-pulse span:first-child {
+    @apply absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping;
+  }
+
+  .status-dot-pulse span:last-child {
+    @apply relative inline-flex rounded-full h-2 w-2;
+  }
+
+  /* Sleek Top Navigation Glass Bar */
+  .nav-glass-bar {
+    background: hsl(240 10% 4% / 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 0% 100% / 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
 
   /* Glow Effect */
