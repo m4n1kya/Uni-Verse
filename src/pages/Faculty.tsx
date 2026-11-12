@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
-import { Search, Mail, MapPin, BookOpen, Filter, X } from "lucide-react";
+import { Search, Mail, MapPin, BookOpen, X, Sparkles, Star, Users, Phone, ArrowUpRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import cardFaculty from "@/assets/card-faculty-realistic.png";
@@ -79,41 +79,53 @@ const Faculty = () => {
   return (
     <>
       <MainLayout>
-        {/* Header */}
-        <div className="relative h-48 md:h-64 overflow-hidden">
-          <img src={cardFaculty} alt="Faculty" className="w-full h-full object-cover brightness-[0.7] contrast-[1.1]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-          <div className="absolute bottom-6 left-6">
-            <h1 className="font-display font-bold text-3xl md:text-4xl">
+        {/* Sleek Header */}
+        <div className="relative h-52 md:h-68 overflow-hidden rounded-b-3xl border-b border-white/[0.08]">
+          <img src={cardFaculty} alt="Faculty" className="w-full h-full object-cover brightness-[0.6] contrast-[1.1] scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          <div className="absolute bottom-6 left-6 md:left-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-primary" />
+              <span className="text-primary font-medium text-xs uppercase tracking-wider">Academic Directory</span>
+            </div>
+            <h1 className="font-display font-bold text-3xl md:text-5xl tracking-tight">
               Faculty <span className="gradient-text">Directory</span>
             </h1>
-            <p className="text-muted-foreground mt-1">Connect with your professors</p>
+            <p className="text-muted-foreground text-sm md:text-base mt-1">Direct cabin allocations, research specializations & student consultation hours</p>
           </div>
         </div>
 
-        {/* Search & Filters */}
-        <div className="p-4 md:p-8 border-b border-border space-y-5">
-          {/* Search Bar — full width */}
+        {/* Search & Filter Bar */}
+        <div className="p-4 md:p-6 space-y-4 border-b border-white/[0.06]">
+          {/* Sleek Search Input */}
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
-              placeholder="Search by name or specialization..."
+              placeholder="Search faculty by professor name or research domain..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 h-12 text-base bg-muted border-border rounded-xl w-full"
+              className="pl-11 pr-4 h-12 text-sm bg-white/[0.03] border-white/10 rounded-2xl w-full focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all text-foreground placeholder:text-muted-foreground/50"
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-lg text-muted-foreground hover:text-foreground"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
 
           {/* Department Filter Chips */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
             {departments.map((dept) => (
               <button
                 key={dept}
                 onClick={() => setSelectedDept(dept)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 border ${
                   selectedDept === dept
-                    ? "bg-primary text-primary-foreground border-primary shadow-md scale-105"
-                    : "bg-muted text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"
+                    ? "bg-primary text-primary-foreground border-primary shadow-md shadow-primary/25 scale-105"
+                    : "bg-white/[0.03] text-muted-foreground border-white/10 hover:border-primary/40 hover:text-foreground"
                 }`}
               >
                 {dept}
@@ -123,40 +135,61 @@ const Faculty = () => {
         </div>
 
         {/* Faculty Grid */}
-        <div className="p-4 md:p-6">
+        <div className="p-4 md:p-6 pb-12">
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-xs text-muted-foreground font-medium">
+              Showing <strong className="text-foreground">{filteredFaculty.length}</strong> professors
+            </span>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filteredFaculty.map((faculty, index) => (
               <div
                 key={faculty.id}
                 onClick={() => setSelectedFaculty(faculty)}
-                className="glass-card p-4 cursor-pointer hover:glow-primary transition-all animate-fade-in group"
-                style={{ animationDelay: `${index * 0.05}s` }}
+                className="sleek-card p-5 cursor-pointer hover:border-primary/40 transition-all animate-fade-in group flex flex-col justify-between"
+                style={{ animationDelay: `${index * 0.04}s` }}
               >
-                {/* Avatar */}
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-2xl font-bold text-primary-foreground">
-                    {faculty.name.split(' ').map(n => n[0]).join('')}
+                <div>
+                  {/* Avatar & Header */}
+                  <div className="flex items-start gap-3.5 mb-4">
+                    <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-primary/30 via-accent/20 to-primary/10 border border-primary/25 flex items-center justify-center text-lg font-bold text-primary shadow-inner shrink-0">
+                      {faculty.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-sm group-hover:text-primary transition-colors leading-tight line-clamp-1">
+                        {faculty.name}
+                      </h3>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <span className="glass-pill text-[10px] font-semibold text-primary">
+                          {faculty.department}
+                        </span>
+                        <div className="flex items-center gap-0.5 text-amber-400 text-xs font-medium ml-auto">
+                          <Star className="w-3 h-3 fill-amber-400" />
+                          <span>{faculty.rating}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold truncate group-hover:text-primary transition-colors">
-                      {faculty.name}
-                    </h3>
-                    <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full">
-                      {faculty.department}
-                    </span>
+
+                  {/* Details */}
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <span className="truncate font-mono">Cabin: {faculty.cabin}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <BookOpen className="w-3.5 h-3.5 text-accent shrink-0" />
+                      <span className="truncate">{faculty.specialization}</span>
+                    </div>
                   </div>
                 </div>
 
-                {/* Details */}
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="w-4 h-4 shrink-0" />
-                    <span className="truncate">Cabin: {faculty.cabin}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <BookOpen className="w-4 h-4 shrink-0" />
-                    <span className="truncate">{faculty.specialization}</span>
-                  </div>
+                <div className="mt-4 pt-3 border-t border-white/[0.04] flex items-center justify-between text-xs">
+                  <span className="text-muted-foreground group-hover:text-foreground transition-colors">Consultation</span>
+                  <span className="text-primary font-semibold flex items-center gap-0.5">
+                    Profile <ArrowUpRight className="w-3 h-3" />
+                  </span>
                 </div>
               </div>
             ))}
@@ -165,71 +198,84 @@ const Faculty = () => {
 
       </MainLayout>
 
-      {/* Faculty Detail Modal */}
-      {
-        selectedFaculty && (
-          <div className="fixed inset-0 z-[9999] bg-background/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="glass-card w-full max-w-md animate-scale-in">
-              <div className="p-6">
-                {/* Close button */}
-                <div className="flex justify-end mb-4">
-                  <button
-                    onClick={() => setSelectedFaculty(null)}
-                    className="p-2 rounded-lg hover:bg-muted transition-colors"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
+      {/* Modern Faculty Detail Modal */}
+      {selectedFaculty && (
+        <div className="fixed inset-0 z-[9999] bg-background/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="sleek-card w-full max-w-md animate-scale-in border border-white/10 shadow-2xl bg-card/95 backdrop-blur-2xl">
+            <div className="p-6">
+              {/* Close button */}
+              <div className="flex justify-end mb-2">
+                <button
+                  onClick={() => setSelectedFaculty(null)}
+                  className="p-1.5 rounded-xl hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
 
-                {/* Avatar */}
-                <div className="flex flex-col items-center mb-6">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-3xl font-bold text-primary-foreground mb-4">
-                    {selectedFaculty.name.split(' ').map((n: string) => n[0]).join('')}
-                  </div>
-                  <h2 className="font-display font-bold text-xl">{selectedFaculty.name}</h2>
-                  <span className="text-sm px-3 py-1 bg-primary/20 text-primary rounded-full mt-2">
+              {/* Avatar */}
+              <div className="flex flex-col items-center mb-6 text-center">
+                <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/30 to-accent/20 border-2 border-primary/30 flex items-center justify-center text-2xl font-bold text-primary mb-3 shadow-lg">
+                  {selectedFaculty.name.split(' ').map((n: string) => n[0]).join('')}
+                </div>
+                <h2 className="font-display font-bold text-xl tracking-tight">{selectedFaculty.name}</h2>
+                <div className="flex items-center gap-2 mt-1.5">
+                  <span className="glass-pill text-xs font-semibold text-primary">
                     {selectedFaculty.department}
                   </span>
-                </div>
-
-                {/* Info */}
-                <div className="space-y-4">
-                  <div className="glass-card p-4">
-                    <p className="text-sm text-muted-foreground mb-1">Cabin</p>
-                    <p className="font-semibold flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      {selectedFaculty.cabin}
-                    </p>
-                  </div>
-
-                  <div className="glass-card p-4">
-                    <p className="text-sm text-muted-foreground mb-1">Email</p>
-                    <a
-                      href={`mailto:${selectedFaculty.email}`}
-                      className="font-semibold flex items-center gap-2 text-primary hover:underline"
-                    >
-                      <Mail className="w-4 h-4" />
-                      {selectedFaculty.email}
-                    </a>
-                  </div>
-
-                  <div className="glass-card p-4">
-                    <p className="text-sm text-muted-foreground mb-1">Specialization</p>
-                    <p className="font-semibold flex items-center gap-2">
-                      <BookOpen className="w-4 h-4 text-primary" />
-                      {selectedFaculty.specialization}
-                    </p>
+                  <div className="flex items-center gap-1 text-amber-400 text-xs font-semibold">
+                    <Star className="w-3.5 h-3.5 fill-amber-400" />
+                    <span>{selectedFaculty.rating} rating</span>
                   </div>
                 </div>
+              </div>
 
-                <Button className="w-full mt-6" variant="default">
-                  See Schedule
+              {/* Info Cards */}
+              <div className="space-y-3">
+                <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                  <p className="text-[11px] uppercase tracking-wider text-muted-foreground mb-1">Cabin Location</p>
+                  <p className="font-semibold text-sm flex items-center gap-2 font-mono">
+                    <MapPin className="w-4 h-4 text-primary" />
+                    {selectedFaculty.cabin}
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                  <p className="text-[11px] uppercase tracking-wider text-muted-foreground mb-1">Official Email</p>
+                  <a
+                    href={`mailto:${selectedFaculty.email}`}
+                    className="font-medium text-xs flex items-center gap-2 text-primary hover:underline break-all"
+                  >
+                    <Mail className="w-4 h-4 shrink-0" />
+                    {selectedFaculty.email}
+                  </a>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                  <p className="text-[11px] uppercase tracking-wider text-muted-foreground mb-1">Academic Designation</p>
+                  <p className="font-semibold text-xs flex items-center gap-2 text-foreground">
+                    <BookOpen className="w-4 h-4 text-primary shrink-0" />
+                    {selectedFaculty.specialization}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 flex gap-2.5">
+                <a
+                  href={`mailto:${selectedFaculty.email}`}
+                  className="flex-1 py-2.5 px-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs rounded-xl transition-all shadow-md shadow-primary/25 flex items-center justify-center gap-2"
+                >
+                  <Mail className="w-4 h-4" />
+                  Send Email
+                </a>
+                <Button variant="outline" className="rounded-xl border-white/10 text-xs px-4" onClick={() => setSelectedFaculty(null)}>
+                  Close
                 </Button>
               </div>
             </div>
           </div>
-        )
-      }
+        </div>
+      )}
     </>
   );
 };
