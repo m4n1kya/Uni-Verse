@@ -14,7 +14,7 @@ Welcome to the technical specification, system architecture, and operational run
 | **Security & Zero-Trust** | [`security/`](./security/) | Incident response & forensic runbook, CSP Level 3 headers, Zero-Trust gateway, data masking protocols, secrets management, and SSO (OIDC) |
 | **DevOps & Infrastructure** | [`devops/`](./devops/) | Infrastructure as Code (Terraform), OpenTelemetry & Jaeger distributed tracing, automated CI/CD security workflows, Prometheus metrics, and DR |
 | **Design System & Motion** | [`design-system/`](./design-system/) | Dark tokens, iconography & SVG optimization guidelines, fluid typography (`clamp()`), spring micro-interactions, and Lucide icon rules |
-| **Accessibility (a11y)** | [`accessibility/`](./accessibility/) | WCAG 2.1 AA compliance benchmarks, screen reader verification transcripts, and CVD simulation audits |
+| **Accessibility (a11y)** | [`accessibility/`](./accessibility/) | Keyboard navigation runbook, WCAG 2.1 AA compliance benchmarks, screen reader verification transcripts, and CVD simulation audits |
 | **Performance & Optimization** | [`performance/`](./performance/) | CSS containment, progressive skeletons, HTTP/3 caching, DOM virtualization, and Core Web Vitals |
 | **Testing & QA** | [`testing/`](./testing/) | Unit test suites, visual regression test matrix (Playwright/Percy), MSW network mocking, chaos engineering fault injection, and k6 load testing |
 | **User Guides** | [`guides/`](./guides/) | Quick-start guide, interactive campus map walkthrough, and internationalization (i18n) roadmap |
@@ -41,3 +41,5 @@ The following architectural specifications and operational runbooks have been ra
    P0-P3 severity matrix, rapid session invalidation, forensic audit trail analysis, and FERPA regulatory breach notification guidelines.
 8. **[Iconography & SVG Asset Optimization Guidelines](./design-system/iconography-and-svg-optimization.md)**  
    Standardized `lucide-react` tree-shaking, SVGO pipeline, 4px grid stroke weight scales, and accessible name bindings for icon controls.
+9. **[Keyboard Navigation & Focus Trapping Runbook](./accessibility/keyboard-navigation-runbook.md)**  
+   High-contrast `:focus-visible` indicators, modal focus trapping, global command shortcuts, and dynamic ARIA live region announcements.
