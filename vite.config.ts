@@ -19,6 +19,11 @@ export default defineConfig(({ mode }) => ({
   build: {
     target: "es2020",
     cssCodeSplit: true,
+    cssMinify: true,
+    assetsInlineLimit: 4096,
+    modulePreload: {
+      polyfill: true,
+    },
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {

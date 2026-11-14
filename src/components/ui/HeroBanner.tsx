@@ -32,6 +32,8 @@ export function HeroBanner({
         <img
           src={image}
           alt={title}
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover brightness-[0.65] contrast-[1.15] scale-[1.02] transition-transform duration-1000 ease-out"
         />
         <div className="absolute inset-0 hero-gradient" />
