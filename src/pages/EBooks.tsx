@@ -413,6 +413,20 @@ const EBooks = () => {
   const [showBookmarks, setShowBookmarks] = useState(false);
   const [viewAllSubjects, setViewAllSubjects] = useState(false);
   const [viewAllFaculties, setViewAllFaculties] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const subjectCategories = [
+    "All",
+    "Program Core",
+    "Program Elective",
+    "Natural Science Core",
+    "Basic Engineering Core",
+    "Skill Development",
+    "Humanities Core",
+    "Project & Internships",
+    "Multidisciplinary Elective",
+    "Natural Science Elective",
+    "Humanities Elective"
+  ];
   const [cgpaCredits, setCgpaCredits] = useState<{ grade: string; credits: string }[]>([
     { grade: "S", credits: "4" },
     { grade: "A", credits: "3" },
@@ -437,10 +451,12 @@ const EBooks = () => {
 
   const isCurrentlyBookmarked = selectedBook ? bookmarks.some(b => b.id === selectedBook.id) : false;
 
-  const filteredSubjects = subjects.filter(subject => 
-    subject.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    (subject.code && subject.code.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
+  const filteredSubjects = subjects.filter(subject => {
+    const matchesSearch = subject.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      (subject.code && subject.code.toLowerCase().includes(searchQuery.toLowerCase()));
+    const matchesCat = selectedCategory === "All" || subject.category === selectedCategory;
+    return matchesSearch && matchesCat;
+  });
 
   const filteredFaculties = faculties.filter(faculty => 
     faculty.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -477,6 +493,18 @@ const EBooks = () => {
       totalCredits += credits;
     });
     return totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : "0.00";
+  };
+
+  const totalCalculatedCredits = cgpaCredits.reduce((sum, item) => sum + (parseInt(item.credits) || 0), 0);
+
+  const getCgpaStanding = (cgpaStr: string) => {
+    const num = parseFloat(cgpaStr);
+    if (isNaN(num) || num === 0) return null;
+    if (num >= 9.0) return { label: "Outstanding • First Class with Distinction", color: "text-emerald-400 bg-emerald-500/15 border-emerald-500/25" };
+    if (num >= 8.0) return { label: "Very Good • First Class", color: "text-primary bg-primary/15 border-primary/25" };
+    if (num >= 7.0) return { label: "Good • Second Class", color: "text-amber-400 bg-amber-500/15 border-amber-500/25" };
+    if (num >= 6.0) return { label: "Pass Division", color: "text-orange-400 bg-orange-500/15 border-orange-500/25" };
+    return { label: "Academic Remedial Recommended", color: "text-destructive bg-destructive/15 border-destructive/25" };
   };
 
   return (
@@ -587,45 +615,76 @@ const EBooks = () => {
           {/* Search & Actions */}
           <div className="flex flex-col md:flex-row gap-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
-                placeholder="Search books, notes, questions..."
+                placeholder="Search across 80+ subjects, codes, or lecture notes..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-muted border-border"
+                className="pl-10 h-11 bg-white/[0.03] border-white/10 rounded-xl text-sm"
               />
             </div>
             <div className="flex gap-2">
               <Button
                 variant={showCalculator ? "default" : "outline"}
                 onClick={() => { setShowCalculator(!showCalculator); setShowBookmarks(false); }}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 rounded-xl text-xs h-11"
               >
                 <Calculator className="w-4 h-4" />
-                CGPA Calculator
+                CGPA Engine
               </Button>
               <Button 
                 variant={showBookmarks ? "default" : "outline"} 
                 onClick={() => { setShowBookmarks(!showBookmarks); setShowCalculator(false); }}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 rounded-xl text-xs h-11"
               >
                 <Bookmark className={`w-4 h-4 ${bookmarks.length > 0 ? 'fill-current' : ''}`} />
                 Bookmarks
                 {bookmarks.length > 0 && (
-                  <span className="ml-1 bg-primary/20 text-primary px-2 py-0.5 rounded-full text-xs">
+                  <span className="ml-1 bg-primary/20 text-primary px-2 py-0.5 rounded-full text-[10px] font-semibold">
                     {bookmarks.length}
                   </span>
                 )}
               </Button>
             </div>
           </div>
+
+          {/* Category Filter Chips */}
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide mt-4">
+            {subjectCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all border cursor-pointer ${
+                  selectedCategory === cat
+                    ? "bg-primary text-primary-foreground border-primary shadow-md shadow-primary/25 scale-105"
+                    : "bg-white/[0.03] text-muted-foreground border-white/10 hover:border-primary/40 hover:text-foreground"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* CGPA Calculator */}
         {showCalculator && (
-          <div className="p-4 md:p-6 border-b border-border animate-fade-in">
-            <div className="glass-card p-4 md:p-6 max-w-xl">
-              <h3 className="font-display font-semibold text-lg mb-4">CGPA Calculator</h3>
+          <div className="p-4 md:p-6 border-b border-border animate-fade-in bg-white/[0.01]">
+            <div className="sleek-card p-6 md:p-8 max-w-xl border border-white/10">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="font-display font-semibold text-lg tracking-tight">Interactive CGPA Calculator</h3>
+                  <p className="text-xs text-muted-foreground mt-0.5">Calculated using standard 10-point credit weightage</p>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setCgpaCredits([{ grade: "S", credits: "4" }])}
+                  className="text-xs text-muted-foreground hover:text-foreground h-8 px-2.5"
+                >
+                  Reset Rows
+                </Button>
+              </div>
+
               <div className="space-y-3">
                 {cgpaCredits.map((item, index) => (
                   <div key={index} className="flex gap-3 items-center">
@@ -636,15 +695,15 @@ const EBooks = () => {
                         updated[index].grade = e.target.value;
                         setCgpaCredits(updated);
                       }}
-                      className="flex h-10 w-1/2 rounded-md border border-input bg-muted px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-1/2 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground"
                     >
                       <option value="" disabled hidden>Select Grade</option>
                       {['S', 'A', 'B', 'C', 'D', 'E', 'F', 'N'].map((g) => (
-                        <option key={g} value={g}>{g}</option>
+                        <option key={g} value={g} className="bg-card text-foreground">{g} Grade ({gradePoints[g]} Points)</option>
                       ))}
                     </select>
                     <Input
-                      placeholder="Credits"
+                      placeholder="Credits (e.g. 3 or 4)"
                       type="number"
                       value={item.credits}
                       onChange={(e) => {
@@ -652,12 +711,12 @@ const EBooks = () => {
                         updated[index].credits = e.target.value;
                         setCgpaCredits(updated);
                       }}
-                      className="w-1/2 bg-muted"
+                      className="w-1/2 bg-white/[0.04] border-white/10 rounded-xl text-xs h-10"
                     />
                     <button
                       onClick={() => setCgpaCredits(cgpaCredits.filter((_, i) => i !== index))}
                       disabled={cgpaCredits.length === 1}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
                       title="Remove row"
                     >
                       <X className="w-4 h-4" />
@@ -666,15 +725,26 @@ const EBooks = () => {
                 ))}
                 <Button
                   variant="ghost"
+                  size="sm"
                   onClick={() => setCgpaCredits([...cgpaCredits, { grade: "", credits: "" }])}
-                  className="text-primary"
+                  className="text-primary text-xs font-semibold hover:bg-primary/10"
                 >
                   + Add Subject
                 </Button>
               </div>
-              <div className="mt-4 p-4 bg-primary/10 rounded-lg">
-                <p className="text-sm text-muted-foreground">Your CGPA</p>
-                <p className="font-display font-bold text-3xl text-primary">{calculateCGPA()}</p>
+
+              {/* Result Card */}
+              <div className="mt-5 p-4 bg-primary/10 border border-primary/20 rounded-2xl flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs text-muted-foreground font-medium">Computed Cumulative GPA</p>
+                  <p className="font-display font-bold text-3xl text-primary mt-0.5">{calculateCGPA()}</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5 font-mono">Based on {totalCalculatedCredits} credits</p>
+                </div>
+                {getCgpaStanding(calculateCGPA()) && (
+                  <span className={`text-xs px-3 py-1 rounded-full font-semibold border ${getCgpaStanding(calculateCGPA())?.color}`}>
+                    {getCgpaStanding(calculateCGPA())?.label}
+                  </span>
+                )}
               </div>
             </div>
           </div>
