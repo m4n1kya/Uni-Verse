@@ -6,6 +6,7 @@ export interface SubjectProps {
   title: string;
   code: string;
   image?: string;
+  books?: number;
   category: "CS" | "Math" | "Engineering" | "Science" | "Humanities" | string;
 }
 
@@ -147,6 +148,14 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({ subject, onClick, clas
   return (
     <div 
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
       className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b ${config.cardBg} backdrop-blur-xl p-6 transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-xl hover:shadow-2xl ${config.shadowGlow} ${className}`}
     >
       {/* Glossy inner top highlight */}
@@ -161,14 +170,19 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({ subject, onClick, clas
       {/* Radial Gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-      <div className="relative z-10 flex justify-between items-start mb-12">
+      <div className="relative z-10 flex justify-between items-start mb-8">
         <span className="text-lg font-mono font-bold text-white/90 tracking-wider">
           {subject.code}
         </span>
-        <div className="flex items-center gap-2">
-          <span className={`text-xs font-semibold px-2 py-1 rounded-full bg-white/5 border border-white/10 whitespace-nowrap ${config.text}`}>
+        <div className="flex items-center gap-1.5 flex-wrap justify-end">
+          <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full bg-white/5 border border-white/10 whitespace-nowrap ${config.text}`}>
             {subject.category}
           </span>
+          {subject.books && (
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/10 text-white/80 border border-white/15">
+              {subject.books} Books
+            </span>
+          )}
         </div>
       </div>
 

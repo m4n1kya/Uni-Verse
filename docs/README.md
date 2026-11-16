@@ -21,7 +21,7 @@ Welcome to the technical specification, system architecture, and operational run
 
 ---
 
-## 🚀 Recent Architecture & Reliability Specifications (v2.1)
+## 🚀 Recent Architecture & Reliability Specifications (v2.2)
 
 The following architectural specifications and operational runbooks have been ratified into the engineering standard:
 
@@ -45,3 +45,5 @@ The following architectural specifications and operational runbooks have been ra
    High-contrast `:focus-visible` indicators, modal focus trapping, global command shortcuts, and dynamic ARIA live region announcements.
 10. **[Production Bundle Budgets & Code-Splitting Runbook](./performance/bundle-budget-and-code-splitting.md)**  
    Core Web Vitals latency thresholds ($< 1.2\text{s}$ LCP, $< 80\text{ms}$ INP), manual Rollup chunk isolation, and edge asset caching rules.
+11. **[Academic Hub & Campus Intelligence Systems](./architecture/micro-frontend-rfc.md)**  
+    Dynamic category curriculum partitioning, 10-point GPA credit engine with distinction tiers, and domain-routed campus assistant intelligence.
