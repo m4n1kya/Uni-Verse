@@ -21,7 +21,7 @@ Welcome to the technical specification, system architecture, and operational run
 
 ---
 
-## 🚀 Recent Architecture & Reliability Specifications (v2.2)
+## 🚀 Recent Architecture & Reliability Specifications (v2.3)
 
 The following architectural specifications and operational runbooks have been ratified into the engineering standard:
 
@@ -47,3 +47,5 @@ The following architectural specifications and operational runbooks have been ra
    Core Web Vitals latency thresholds ($< 1.2\text{s}$ LCP, $< 80\text{ms}$ INP), manual Rollup chunk isolation, and edge asset caching rules.
 11. **[Academic Hub & Campus Intelligence Systems](./architecture/micro-frontend-rfc.md)**  
     Dynamic category curriculum partitioning, 10-point GPA credit engine with distinction tiers, and domain-routed campus assistant intelligence.
+12. **[Real-Time Transit Telemetry & Contactless Dining Protocol](./architecture/transit-and-dining-engine.md)**  
+    Live bus stop waypoint state machines, GPS telemetry schemas, multi-vendor order decomposition, and digital token issuance runbooks.
