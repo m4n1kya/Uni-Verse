@@ -1,7 +1,33 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
-import { Briefcase, TrendingUp, Code, DollarSign, Users, Star, X, BookOpen, ExternalLink, Youtube, FileText, Lightbulb, Search, ChevronLeft, ChevronRight, MessageSquare, Sparkles, CheckCircle2, Award } from "lucide-react";
+import {
+  Briefcase,
+  TrendingUp,
+  Code,
+  DollarSign,
+  Users,
+  Star,
+  X,
+  BookOpen,
+  ExternalLink,
+  Youtube,
+  FileText,
+  Lightbulb,
+  Search,
+  ChevronLeft,
+  ChevronRight,
+  MessageSquare,
+  Sparkles,
+  CheckCircle2,
+  Award,
+  Bookmark,
+  BookmarkCheck,
+  SlidersHorizontal,
+  Layers,
+  Check,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import cardCareer from "@/assets/card-career.jpg";
 import { companiesData, Company } from "@/data/companies";
 
@@ -20,20 +46,87 @@ const prepTypeConfig: Record<string, { icon: any; color: string; bg: string; lab
   guide:    { icon: Lightbulb, color: "text-yellow-400", bg: "bg-yellow-500/10 border-yellow-500/20", label: "Guide" },
 };
 
+const categoryFilters = [
+  "All Domains",
+  "IT & Software",
+  "Finance & Consulting",
+  "Engineering & Manufacturing",
+  "E-commerce & Technology Platforms",
+  "Super Dream (20+ LPA)",
+  "Shortlisted ⭐",
+] as const;
+
+type DomainFilterType = typeof categoryFilters[number];
+
+const minCtcFilters = [0, 10, 20, 30] as const;
+
 const Career = () => {
+  const { toast } = useToast();
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [userGPA, setUserGPA] = useState(8.0);
-  const [activeTab, setActiveTab] = useState<"overview" | "prep">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "timeline" | "prep">("overview");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedDomain, setSelectedDomain] = useState<DomainFilterType>("All Domains");
+  const [minCtc, setMinCtc] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [showAll, setShowAll] = useState(false);
+  const [shortlist, setShortlist] = useState<number[]>(() => {
+    try {
+      const saved = localStorage.getItem("universe_shortlisted_companies");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
   const itemsPerPage = 8;
 
+  useEffect(() => {
+    try {
+      localStorage.setItem("universe_shortlisted_companies", JSON.stringify(shortlist));
+    } catch {
+      // ignore
+    }
+  }, [shortlist]);
+
+  const toggleShortlist = (companyId: number, companyName: string, e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (shortlist.includes(companyId)) {
+      setShortlist(prev => prev.filter(id => id !== companyId));
+      toast({
+        title: "Removed from Shortlist",
+        description: `${companyName} removed from your saved companies.`,
+      });
+    } else {
+      setShortlist(prev => [...prev, companyId]);
+      toast({
+        title: "Added to Shortlist ⭐",
+        description: `${companyName} saved to your recruitment target list.`,
+      });
+    }
+  };
+
   const filteredCompanies = useMemo(() => {
-    return companiesData.filter((c) =>
-      c.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }, [searchQuery]);
+    return companiesData.filter((c) => {
+      const matchesSearch =
+        c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        c.skills.some(s => s.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        c.dsaTopics.some(d => d.toLowerCase().includes(searchQuery.toLowerCase()));
+
+      let matchesDomain = true;
+      if (selectedDomain === "Shortlisted ⭐") {
+        matchesDomain = shortlist.includes(c.id);
+      } else if (selectedDomain === "Super Dream (20+ LPA)") {
+        matchesDomain = c.highestLPA >= 20 || c.avgLPA >= 20;
+      } else if (selectedDomain !== "All Domains") {
+        matchesDomain = c.category === selectedDomain;
+      }
+
+      const matchesMinCtc = minCtc === 0 || c.highestLPA >= minCtc || c.avgLPA >= minCtc;
+
+      return matchesSearch && matchesDomain && matchesMinCtc;
+    });
+  }, [searchQuery, selectedDomain, minCtc, shortlist]);
 
   const totalPages = Math.ceil(filteredCompanies.length / itemsPerPage);
   
@@ -150,10 +243,58 @@ const Career = () => {
           </div>
         </div>
 
+        {/* Domain Filters & Controls */}
+        <section className="px-4 md:px-6 pb-2">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
+              {categoryFilters.map((domain) => (
+                <button
+                  key={domain}
+                  onClick={() => {
+                    setSelectedDomain(domain);
+                    setCurrentPage(1);
+                  }}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border whitespace-nowrap cursor-pointer ${
+                    selectedDomain === domain
+                      ? "bg-primary text-primary-foreground border-primary shadow-sm shadow-primary/25"
+                      : "bg-white/[0.03] text-muted-foreground border-white/10 hover:border-white/20 hover:text-foreground"
+                  }`}
+                >
+                  {domain}
+                  {domain === "Shortlisted ⭐" && shortlist.length > 0 && ` (${shortlist.length})`}
+                </button>
+              ))}
+            </div>
+
+            {/* Minimum CTC Filter */}
+            <div className="hidden lg:flex items-center gap-1.5 shrink-0 pl-3">
+              <span className="text-xs text-muted-foreground font-medium">Min CTC:</span>
+              {minCtcFilters.map((ctc) => (
+                <button
+                  key={ctc}
+                  onClick={() => {
+                    setMinCtc(ctc);
+                    setCurrentPage(1);
+                  }}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors border ${
+                    minCtc === ctc
+                      ? "bg-primary/15 text-primary border-primary/30"
+                      : "bg-white/[0.02] text-muted-foreground border-white/10 hover:text-foreground"
+                  }`}
+                >
+                  {ctc === 0 ? "Any" : `${ctc}+ LPA`}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Company Navigation & Search */}
         <div className="px-4 md:px-6 mb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h2 className="font-display font-bold text-xl tracking-tight">Recruiting Companies</h2>
+            <h2 className="font-display font-bold text-xl tracking-tight">
+              Recruiting Companies ({filteredCompanies.length})
+            </h2>
             <p className="text-xs text-muted-foreground mt-0.5">Click any company card to inspect interview tracks and prep resources</p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
@@ -161,7 +302,7 @@ const Career = () => {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input
                 type="text"
-                placeholder="Search companies..."
+                placeholder="Search company, skill, DSA..."
                 value={searchQuery}
                 onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
                 className="w-full bg-white/[0.03] border border-white/10 rounded-xl pl-10 pr-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all text-foreground placeholder:text-muted-foreground/50"
@@ -190,27 +331,47 @@ const Career = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {comps.map((company, index) => {
                   const isEligible = userGPA >= company.gpaCutoff;
+                  const isShortlisted = shortlist.includes(company.id);
+
                   return (
                     <div
                       key={company.id}
                       onClick={() => handleSelect(company)}
-                      className={`sleek-card p-5 cursor-pointer transition-all duration-300 animate-fade-in group flex flex-col h-full hover:border-primary/40 ${
+                      className={`sleek-card p-5 cursor-pointer transition-all duration-300 animate-fade-in group flex flex-col h-full hover:border-primary/40 relative ${
                         isEligible ? "hover:-translate-y-1.5" : "opacity-60"
                       }`}
                       style={{ animationDelay: `${(index % 8) * 0.05}s` }}
                     >
-                      <div className="flex items-center gap-3.5 mb-4">
-                        <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${company.color} flex items-center justify-center text-lg font-bold text-white shadow-md shrink-0`}>
-                          {company.logo}
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${company.color} flex items-center justify-center text-lg font-bold text-white shadow-md shrink-0`}>
+                            {company.logo}
+                          </div>
+                          <div className="min-w-0">
+                            <h3 className="font-semibold text-sm truncate group-hover:text-primary transition-colors">{company.name}</h3>
+                            <span className={`text-[10px] px-2 py-0.5 rounded-full font-semibold mt-1 inline-block ${
+                              isEligible ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/25" : "bg-destructive/15 text-destructive-foreground border border-destructive/40"
+                            }`}>
+                              {isEligible ? "Eligible" : `Need ${company.gpaCutoff} CGPA`}
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-sm truncate group-hover:text-primary transition-colors">{company.name}</h3>
-                          <span className={`text-[10px] px-2 py-0.5 rounded-full font-semibold mt-1 inline-block ${
-                            isEligible ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/25" : "bg-destructive/15 text-destructive-foreground border border-destructive/40"
-                          }`}>
-                            {isEligible ? "Eligible" : `Need ${company.gpaCutoff} CGPA`}
-                          </span>
-                        </div>
+
+                        <button
+                          onClick={(e) => toggleShortlist(company.id, company.name, e)}
+                          className={`p-1.5 rounded-xl border transition-all ${
+                            isShortlisted
+                              ? "bg-amber-500/15 border-amber-500/30 text-amber-400"
+                              : "bg-white/[0.02] border-white/10 text-muted-foreground hover:text-foreground hover:bg-white/10"
+                          }`}
+                          title={isShortlisted ? "Remove from target list" : "Bookmark company"}
+                        >
+                          {isShortlisted ? (
+                            <BookmarkCheck className="w-4 h-4" />
+                          ) : (
+                            <Bookmark className="w-4 h-4" />
+                          )}
+                        </button>
                       </div>
 
                       <div className="grid grid-cols-3 gap-1.5 text-center mt-auto bg-white/[0.02] p-2.5 rounded-xl border border-white/5">
@@ -236,7 +397,7 @@ const Career = () => {
 
           {Object.keys(groupedCompanies).length === 0 && (
             <div className="py-12 border border-dashed rounded-2xl border-white/10 bg-white/[0.01] text-center text-muted-foreground text-sm">
-              No companies found matching "{searchQuery}".
+              No companies found matching current filters.
             </div>
           )}
 
@@ -273,19 +434,39 @@ const Career = () => {
           <div className="sleek-card w-full max-w-xl max-h-[85vh] overflow-y-auto animate-scale-in border border-white/10 shadow-2xl bg-card/95 backdrop-blur-2xl">
             {/* Modal Header */}
             <div className={`p-6 bg-gradient-to-r ${selectedCompany.color} bg-opacity-10 border-b border-white/10 relative`}>
-              <button
-                onClick={() => setSelectedCompany(null)}
-                className="absolute top-4 right-4 p-1.5 rounded-xl hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="absolute top-4 right-4 flex items-center gap-1.5">
+                <button
+                  onClick={() => toggleShortlist(selectedCompany.id, selectedCompany.name)}
+                  className={`p-1.5 rounded-xl border transition-all ${
+                    shortlist.includes(selectedCompany.id)
+                      ? "bg-amber-500/20 border-amber-500/40 text-amber-400"
+                      : "bg-white/10 border-white/10 text-muted-foreground hover:text-foreground"
+                  }`}
+                  title="Bookmark company"
+                >
+                  {shortlist.includes(selectedCompany.id) ? (
+                    <BookmarkCheck className="w-4 h-4" />
+                  ) : (
+                    <Bookmark className="w-4 h-4" />
+                  )}
+                </button>
+                <button
+                  onClick={() => setSelectedCompany(null)}
+                  className="p-1.5 rounded-xl hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
               <div className="flex items-center gap-4">
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${selectedCompany.color} flex items-center justify-center text-2xl font-bold text-white shadow-lg`}>
                   {selectedCompany.logo}
                 </div>
                 <div>
                   <h2 className="font-display font-bold text-2xl tracking-tight">{selectedCompany.name}</h2>
-                  <p className="text-muted-foreground text-xs mt-0.5">CGPA Cutoff: <span className="text-foreground font-semibold font-mono">{selectedCompany.gpaCutoff}</span></p>
+                  <p className="text-muted-foreground text-xs mt-0.5">
+                    Category: <span className="text-foreground font-medium">{selectedCompany.category}</span> • Cutoff: <span className="text-foreground font-semibold font-mono">{selectedCompany.gpaCutoff} CGPA</span>
+                  </p>
                 </div>
               </div>
 
@@ -306,12 +487,13 @@ const Career = () => {
             <div className="flex border-b border-white/[0.08]">
               {[
                 { id: "overview", label: "Overview", icon: Star },
+                { id: "timeline", label: "Hiring Rounds", icon: Layers },
                 { id: "prep", label: "Preparation Material", icon: BookOpen },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as any)}
-                  className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs font-semibold transition-all ${
+                  className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs font-semibold transition-all cursor-pointer ${
                     activeTab === tab.id
                       ? "border-b-2 border-primary text-primary bg-primary/5"
                       : "text-muted-foreground hover:text-foreground"
@@ -353,12 +535,81 @@ const Career = () => {
                     </div>
                   </div>
 
+                  <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+                    <div>
+                      <span className="text-xs text-muted-foreground">Your Qualification Status:</span>
+                      <p className="text-sm font-semibold mt-0.5">
+                        {userGPA >= selectedCompany.gpaCutoff ? (
+                          <span className="text-emerald-400 flex items-center gap-1.5">
+                            <CheckCircle2 className="w-4 h-4" /> Qualified for Online Assessment ({userGPA.toFixed(1)} ≥ {selectedCompany.gpaCutoff})
+                          </span>
+                        ) : (
+                          <span className="text-amber-400">
+                            Below GPA Cutoff (Current: {userGPA.toFixed(1)} / Required: {selectedCompany.gpaCutoff})
+                          </span>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+
                   <Button
                     className="w-full mt-2 rounded-xl text-xs h-10 font-semibold shadow-md shadow-primary/20"
                     size="lg"
+                    onClick={() => setActiveTab("timeline")}
+                  >
+                    View Interview Rounds & Roadmap →
+                  </Button>
+                </div>
+              )}
+
+              {activeTab === "timeline" && (
+                <div className="space-y-4 animate-fade-in">
+                  <p className="text-xs text-muted-foreground">
+                    Standard multi-stage evaluation pipeline reported by alumni for <strong className="text-foreground">{selectedCompany.name}</strong>:
+                  </p>
+                  
+                  <div className="space-y-3 relative pl-4 border-l border-white/10 ml-2">
+                    {[
+                      {
+                        title: "Round 1: Online Coding Assessment (OA)",
+                        desc: "60-90 minutes. 2-3 medium/hard DSA questions + CS fundamentals MCQ.",
+                        focus: selectedCompany.dsaTopics.slice(0, 2).join(", "),
+                      },
+                      {
+                        title: "Round 2: Technical Interview 1",
+                        desc: "Live coding with screen share. Deep dive on algorithmic complexity and edge cases.",
+                        focus: "Problem solving, DSA, OOPs",
+                      },
+                      {
+                        title: "Round 3: Technical Interview 2 & Architecture",
+                        desc: "Project architecture inspection, database design, and scalability trade-offs.",
+                        focus: selectedCompany.skills.slice(0, 3).join(", "),
+                      },
+                      {
+                        title: "Round 4: Techno-Managerial & Cultural Fitment",
+                        desc: "Behavioral assessment using STAR method, team dynamics, and scenario questions.",
+                        focus: "Leadership, Communication, Culture",
+                      },
+                    ].map((round, idx) => (
+                      <div key={idx} className="relative pl-3">
+                        <div className="absolute -left-[21px] top-1 w-3.5 h-3.5 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        </div>
+                        <h4 className="text-xs font-semibold text-foreground">{round.title}</h4>
+                        <p className="text-[11px] text-muted-foreground mt-0.5 leading-relaxed">{round.desc}</p>
+                        <span className="inline-block mt-1 text-[10px] px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-primary">
+                          Focus: {round.focus}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button
+                    className="w-full mt-3 rounded-xl text-xs h-10 font-semibold shadow-md shadow-primary/20"
+                    size="lg"
                     onClick={() => setActiveTab("prep")}
                   >
-                    View Curated Preparation Tracks →
+                    Inspect Preparation Resources →
                   </Button>
                 </div>
               )}
