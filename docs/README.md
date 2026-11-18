@@ -21,7 +21,7 @@ Welcome to the technical specification, system architecture, and operational run
 
 ---
 
-## 🚀 Recent Architecture & Reliability Specifications (v2.3)
+## 🚀 Recent Architecture & Reliability Specifications (v2.4)
 
 The following architectural specifications and operational runbooks have been ratified into the engineering standard:
 
@@ -49,3 +49,5 @@ The following architectural specifications and operational runbooks have been ra
     Dynamic category curriculum partitioning, 10-point GPA credit engine with distinction tiers, and domain-routed campus assistant intelligence.
 12. **[Real-Time Transit Telemetry & Contactless Dining Protocol](./architecture/transit-and-dining-engine.md)**  
     Live bus stop waypoint state machines, GPS telemetry schemas, multi-vendor order decomposition, and digital token issuance runbooks.
+13. **[Student Lifecycle & Placement Intelligence Engine](./architecture/student-lifecycle-and-placement-engine.md)**  
+    Four-year degree readiness mathematical modeling, multi-variable placement tier classification, and faculty consultation dispatch protocols.
